@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/qiguai-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/qiguai-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis持久性框架">
+<meta property="og:url" content="http://example.com/2021/03/08/article03/index.html">
+<meta property="og:site_name" content="骑怪的梁阿无">
+<meta property="og:description" content="1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/.com//%5Carticle03%5C03-01.jpg">
+<meta property="article:published_time" content="2021-03-08T02:41:08.000Z">
+<meta property="article:modified_time" content="2021-03-08T08:16:26.000Z">
+<meta property="article:author" content="梁阿无">
+<meta property="article:tag" content="MyBatis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/.com//%5Carticle03%5C03-01.jpg">
+
+<link rel="canonical" href="http://example.com/2021/03/08/article03/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MyBatis持久性框架 | 骑怪的梁阿无</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="骑怪的梁阿无" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<!-- 加入APlayer音乐播放器 -->
+<!--<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>-->
+
+<!--fork on me github-->
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/liangawu" class="github-corner" aria-label="View source on GitHub">
+<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">骑怪的梁阿无</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/08/article03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/qiguai.jpg">
+      <meta itemprop="name" content="梁阿无">
+      <meta itemprop="description" content="且视他人疑目如盏盏鬼火，大胆地去走你的夜路">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="骑怪的梁阿无">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MyBatis持久性框架
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-08 10:41:08 / 修改时间：16:16:26" itemprop="dateCreated datePublished" datetime="2021-03-08T10:41:08+08:00">2021-03-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。<span id="more"></span></li>
+<li>2.原始JDBC存在着频繁的连接、创建、释放导致系统资源浪费，从而影响性能，解决方法可以通过创建数据库连接池进行数据库性能的优化。</li>
+<li>3.sql语句的变化较多，并且使用preparedstatement存在较多的硬编码，以及对结果集的解析也存在较多硬编码，耦合度比较高，因而想要用框架进行封装进而优化数据库，所以出现了Mybatis框架。</li>
+<li>4.MyBatis是一款优秀的持久性框架，几乎免除了所有的JDBC代码以及设置参数和获取结果集的工作，MyBatis可以通过简单xml和注解来配置和映射原始类型、接口、和JavaPOJO**(Plain Old Java Objects,普通老式Java对象**)为数据库中的记录。</li>
+<li>5.ORM框架（<strong>对象关系映射的缩写</strong>），MyBatis是一款基于ORM框架实现的半自动轻量级持久层框架。</li>
+<li>6.开发流程：<ul>
+<li>6.1.添加MyBatis的jar包</li>
+<li>6.2.创建数据库实体表</li>
+<li>6.3.编写User实体类（<strong>成员变量的类型要与数据库的数据的类型要一一对应</strong>）</li>
+<li>6.4.编写映射实体类的xml文件<br>（通过配置类访问到对应实体类的映射文件xml，映射文件xml的定义：<br><code>&lt;mapper namespace=&quot;com.awu.mapper.UserMapper&quot;&gt;</code><br>根据namespace找到对应的实体类<figure class="highlight plaintext"><figcaption><span>id</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select * from user&lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;）```</span><br><span class="line">(*其中id 是对应的方法名，可以在执行时找到对应的实体类的代理对象的方法，resultType这是返回结果集的类型，此处表示是User类类型的*)</span><br><span class="line">   - 6.5.编写核心配置文件mybatis-config.xml</span><br><span class="line">   - 6.6.编写测试方法</span><br><span class="line">- 7.测试</span><br><span class="line">（*编写加载配置文件的路径，然后用*</span><br><span class="line">```Inputstream inutstream=Resource.getResourceAsStresm(resource )</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSessionFactory sqlSessionFactory =new SqlSessionFactoryBuilder().build(inputstream)//获得sqlsession工厂对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSession sqlSession =sqlSessionFactory.openSession();//设置sqlsession对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; users=sqlSession.selectList(&quot;com.awu.UserMapper.findAll&quot;) //执行sql语句</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(User user : users)&#123;</span><br><span class="line">System.our.println(user.toString())&#125;//打印结果</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>
+）</li>
+</ul>
+</li>
+<li>8.除了用这种sqlSession方式，还可以用MyBatis代理开发的方式，Mapper接口的开发方法需要程序员编写Mapper接口（<strong>相当于dao接口</strong>），由MyBatis框架根据接口定义创建接口的动态代理对象。</li>
+<li>9.开发流程：<br>创建UserMapper接口，同时测试类中出现如下改动，在获取sqlSession对象后，不直接执行方法，而通过增加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserMapper userMapper =sqlSession.getMapper(UserMapper.class);</span><br></pre></td></tr></table></figure>
+获取其代理对象，进而调用userMapper的方法。</li>
+<li>10.Mapper.xml的namespace的全限定名和Mapper接口的全限定名一样。xml的id和Mapper接口的方法名要一致，并且Mapper接口方法的参数类型要和xml的resultType的类型要相同。</li>
+<li>11.<strong>Mybatis常用的API</strong><ul>
+<li>sqlSession</li>
+<li>sqlSessionFactory <em>工厂对象</em> </li>
+<li>Resource <em>资源类</em></li>
+<li>sqlSession.opneSession()</li>
+</ul>
+<em>//无参数表示非自动提交，有参数TRUE表示事务是自动提交的。</em><ul>
+<li>sqlSession <em>会话对象</em><br>（<em>包含执行语句，提交或者回滚以及获取映射器实例的方法</em>）</li>
+</ul>
+</li>
+<li>12.（16:05）<strong>environment标签和mapper标签</strong><br>（<em>配置文件找到映射文件，映射文件再根据命名空间和id找到具体的类的具体的方法</em>）</li>
+<li>13.MyBatis的增删改查-<em>映射文件内标签内容的书写</em><ul>
+<li>13.1.－－<strong>根据用户编号查找用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where id=#&#123;id&#125;(使用这条语句的同时还需要在标签头添加参数标签，用以封装传过来的参数，其中#&#123;id｝就是传进来封装的参数值</span><br></pre></td></tr></table></figure></li>
+<li>13.2.－－<strong>根据用户名模糊查询用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where username like &#x27;%$&#123;value&#125;%&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>13.3.－－<strong>添加客户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert&gt;</span><br><span class="line">insert into user&#123;username,jobs,phone&#125;values &#123;#&#123;username&#125;,#&#123;jobs,#&#123;phone&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p><em>｛内容｝表示由用户传进来的参数的封装</em></p>
+<ul>
+<li>13.4.－－<strong>更新用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;update&gt;</span><br><span class="line">update user set username=#&#123;username&#125;,jobs=#&#123;jobs&#125;,phone=#&#123;phone&#125; where id=#&#123;id&#125;</span><br></pre></td></tr></table></figure></li>
+<li>13.5.－－<strong>删除用户信息</strong>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;</span><br><span class="line">delete from user where id=#&#123;id&#125;</span><br></pre></td></tr></table></figure></li>
+<li>14.*<em>MyBatis原理：**</em>  </li>
+</ul>
+<p><em>实现方式两种：sqlsession和基于sqlsession的mapper代理对象</em><br>功能架构分为三层：<br>接口层、数据处理层、框架支撑层<br>（增加数据接口&lt;－－参数映射，SQL解析，SQL执行，结果处理和映射&lt;－－xml配置，基于注解的配置）</p>
+<ul>
+<li>15.<strong>MyBatis的一级缓存和二级缓存：</strong><br>一级缓存是默认开启的，二级缓存是需要手动进行配置的，开启后的二级缓存还需要将实体类pojo实现serializable接口。数据的查询首先是查缓存，如果缓存中没有则再向数据库中找。所以在一二级缓存都存在的情况下，查询的流程是，首先在二级缓存中找同一个namespace下的多个sqlSession对象，然后通过一级缓存在每个sqlSession内查找数据，可以说二级缓存是基于命名空间查找的（<em>基于mapper映射文件的namspace实现的</em>），一级缓存是基于sqlSession查找的（<em>基于sqlSession实现的</em>），如果都找不到再查询数据库。</li>
+<li>16.二级缓存什么时候失效什么时候生效？<br> 答：当执行的sqlSession对象是位于同一个命名空间的不同sqlSession对象时，sql语句执行commit或close，一级缓存失效二级缓存生效，sql语句执行增删改操作时二级缓存失效一级缓存生效。</li>
+</ul>
+<hr>
+<p>   <img src="/.com//%5Carticle03%5C03-01.jpg"> </p>
+
+    </div>
+
+    
+    
+    
+	
+	 
+      <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>梁阿无
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2021/03/08/article03/" title="MyBatis持久性框架">http://example.com/2021/03/08/article03/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MyBatis/" rel="tag"># MyBatis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/08/article02/" rel="prev" title="Dao层和Service层的记录(1)">
+      <i class="fa fa-chevron-left"></i> Dao层和Service层的记录(1)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/01/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+	  
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="梁阿无"
+      src="/images/qiguai.jpg">
+  <p class="site-author-name" itemprop="name">梁阿无</p>
+  <div class="site-description" itemprop="description">且视他人疑目如盏盏鬼火，大胆地去走你的夜路</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:mel1098478823@163.com" title="E-Mail → mailto:mel1098478823@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope-open fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1098478823" title="QQ → 1098478823"><i class="fa fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.baidu.com/?tn=62095104_33_oem_dg" title="https:&#x2F;&#x2F;www.baidu.com&#x2F;?tn&#x3D;62095104_33_oem_dg" rel="noopener" target="_blank">Baidu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.google.cn/" title="https:&#x2F;&#x2F;www.google.cn&#x2F;" rel="noopener" target="_blank">Google</a>
+        </li>
+    </ul>
+  </div>
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+      </div>
+	  
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-01 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁阿无</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+<!-- start -->
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+        
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

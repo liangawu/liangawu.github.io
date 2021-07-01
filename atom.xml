@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>骑怪的梁阿无</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-01-29T13:46:36.000Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>梁阿无</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2021/07/01/hello-world/"/>
+    <id>http://example.com/2021/07/01/hello-world/</id>
+    <published>2021-07-01T07:55:29.388Z</published>
+    <updated>2021-01-29T13:46:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><span id="more"></span><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MyBatis持久性框架</title>
+    <link href="http://example.com/2021/03/08/article03/"/>
+    <id>http://example.com/2021/03/08/article03/</id>
+    <published>2021-03-08T02:41:08.000Z</published>
+    <updated>2021-03-08T08:16:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul><li>1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。<span id="more"></span></li><li>2.原始JDBC存在着频繁的连接、创建、释放导致系统资源浪费，从而影响性能，解决方法可以通过创建数据库连接池进行数据库性能的优化。</li><li>3.sql语句的变化较多，并且使用preparedstatement存在较多的硬编码，以及对结果集的解析也存在较多硬编码，耦合度比较高，因而想要用框架进行封装进而优化数据库，所以出现了Mybatis框架。</li><li>4.MyBatis是一款优秀的持久性框架，几乎免除了所有的JDBC代码以及设置参数和获取结果集的工作，MyBatis可以通过简单xml和注解来配置和映射原始类型、接口、和JavaPOJO**(Plain Old Java Objects,普通老式Java对象**)为数据库中的记录。</li><li>5.ORM框架（<strong>对象关系映射的缩写</strong>），MyBatis是一款基于ORM框架实现的半自动轻量级持久层框架。</li><li>6.开发流程：<ul><li>6.1.添加MyBatis的jar包</li><li>6.2.创建数据库实体表</li><li>6.3.编写User实体类（<strong>成员变量的类型要与数据库的数据的类型要一一对应</strong>）</li><li>6.4.编写映射实体类的xml文件<br>（通过配置类访问到对应实体类的映射文件xml，映射文件xml的定义：<br><code>&lt;mapper namespace=&quot;com.awu.mapper.UserMapper&quot;&gt;</code><br>根据namespace找到对应的实体类<figure class="highlight plaintext"><figcaption><span>id</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select * from user&lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;）```</span><br><span class="line">(*其中id 是对应的方法名，可以在执行时找到对应的实体类的代理对象的方法，resultType这是返回结果集的类型，此处表示是User类类型的*)</span><br><span class="line">   - 6.5.编写核心配置文件mybatis-config.xml</span><br><span class="line">   - 6.6.编写测试方法</span><br><span class="line">- 7.测试</span><br><span class="line">（*编写加载配置文件的路径，然后用*</span><br><span class="line">```Inputstream inutstream=Resource.getResourceAsStresm(resource )</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSessionFactory sqlSessionFactory =new SqlSessionFactoryBuilder().build(inputstream)//获得sqlsession工厂对象</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSession sqlSession =sqlSessionFactory.openSession();//设置sqlsession对象</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; users=sqlSession.selectList(&quot;com.awu.UserMapper.findAll&quot;) //执行sql语句</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(User user : users)&#123;</span><br><span class="line">System.our.println(user.toString())&#125;//打印结果</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>）</li></ul></li><li>8.除了用这种sqlSession方式，还可以用MyBatis代理开发的方式，Mapper接口的开发方法需要程序员编写Mapper接口（<strong>相当于dao接口</strong>），由MyBatis框架根据接口定义创建接口的动态代理对象。</li><li>9.开发流程：<br>创建UserMapper接口，同时测试类中出现如下改动，在获取sqlSession对象后，不直接执行方法，而通过增加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserMapper userMapper =sqlSession.getMapper(UserMapper.class);</span><br></pre></td></tr></table></figure>获取其代理对象，进而调用userMapper的方法。</li><li>10.Mapper.xml的namespace的全限定名和Mapper接口的全限定名一样。xml的id和Mapper接口的方法名要一致，并且Mapper接口方法的参数类型要和xml的resultType的类型要相同。</li><li>11.<strong>Mybatis常用的API</strong><ul><li>sqlSession</li><li>sqlSessionFactory <em>工厂对象</em> </li><li>Resource <em>资源类</em></li><li>sqlSession.opneSession()</li></ul><em>//无参数表示非自动提交，有参数TRUE表示事务是自动提交的。</em><ul><li>sqlSession <em>会话对象</em><br>（<em>包含执行语句，提交或者回滚以及获取映射器实例的方法</em>）</li></ul></li><li>12.（16:05）<strong>environment标签和mapper标签</strong><br>（<em>配置文件找到映射文件，映射文件再根据命名空间和id找到具体的类的具体的方法</em>）</li><li>13.MyBatis的增删改查-<em>映射文件内标签内容的书写</em><ul><li>13.1.－－<strong>根据用户编号查找用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where id=#&#123;id&#125;(使用这条语句的同时还需要在标签头添加参数标签，用以封装传过来的参数，其中#&#123;id｝就是传进来封装的参数值</span><br></pre></td></tr></table></figure></li><li>13.2.－－<strong>根据用户名模糊查询用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where username like &#x27;%$&#123;value&#125;%&#x27;</span><br></pre></td></tr></table></figure></li><li>13.3.－－<strong>添加客户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert&gt;</span><br><span class="line">insert into user&#123;username,jobs,phone&#125;values &#123;#&#123;username&#125;,#&#123;jobs,#&#123;phone&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></li></ul></li></ul><p><em>｛内容｝表示由用户传进来的参数的封装</em></p><ul><li>13.4.－－<strong>更新用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;update&gt;</span><br><span class="line">update user set username=#&#123;username&#125;,jobs=#&#123;jobs&#125;,phone=#&#123;phone&#125; where id=#&#123;id&#125;</span><br></pre></td></tr></table></figure></li><li>13.5.－－<strong>删除用户信息</strong>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;</span><br><span class="line">delete from user where id=#&#123;id&#125;</span><br></pre></td></tr></table></figure></li><li>14.*<em>MyBatis原理：**</em>  </li></ul><p><em>实现方式两种：sqlsession和基于sqlsession的mapper代理对象</em><br>功能架构分为三层：<br>接口层、数据处理层、框架支撑层<br>（增加数据接口&lt;－－参数映射，SQL解析，SQL执行，结果处理和映射&lt;－－xml配置，基于注解的配置）</p><ul><li>15.<strong>MyBatis的一级缓存和二级缓存：</strong><br>一级缓存是默认开启的，二级缓存是需要手动进行配置的，开启后的二级缓存还需要将实体类pojo实现serializable接口。数据的查询首先是查缓存，如果缓存中没有则再向数据库中找。所以在一二级缓存都存在的情况下，查询的流程是，首先在二级缓存中找同一个namespace下的多个sqlSession对象，然后通过一级缓存在每个sqlSession内查找数据，可以说二级缓存是基于命名空间查找的（<em>基于mapper映射文件的namspace实现的</em>），一级缓存是基于sqlSession查找的（<em>基于sqlSession实现的</em>），如果都找不到再查询数据库。</li><li>16.二级缓存什么时候失效什么时候生效？<br> 答：当执行的sqlSession对象是位于同一个命名空间的不同sqlSession对象时，sql语句执行commit或close，一级缓存失效二级缓存生效，sql语句执行增删改操作时二级缓存失效一级缓存生效。</li></ul><hr><p>   <img src="/.com//%5Carticle03%5C03-01.jpg"> </p>]]></content>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。&lt;/li&gt;&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="计算机" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="MyBatis" scheme="http://example.com/tags/MyBatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dao层和Service层的记录(1)</title>
+    <link href="http://example.com/2021/03/08/article02/"/>
+    <id>http://example.com/2021/03/08/article02/</id>
+    <published>2021-03-08T02:05:24.000Z</published>
+    <updated>2021-03-08T02:26:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul><li>1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。<span id="more"></span></li><li>2.mvc是一种结构模式，通过结构的设计达到程序解耦的作用。</li><li>3.mvc调用过程：表示层调用控制层，控制层调用服务层，服务层调用Dao层。</li><li>4.其实控制层做的事就是处理请求的路径，用RequestMapping(“/“)对类或者方法使用。放在类前表示这个资源请求的父路径，然后在具体的方法前使用@GetMapping(“/“)表示调用对应方法时具体的路径。<ul><li>4.1.例如在Test类前添加@RequestMapping(“/user”)，其中Test类有一个名叫findAll的方法，那么可以在此方法前加GetMapping(“/findAll”)，当调用findAll方法的时候。在web请求中的路径即为localhost：8080/user/findAll。</li></ul></li><li>5.至于@GetMapping(“/“)等价于@RequestMapping(“method= Request Method.GET”)，同理，PostMapping(“/“)，DeleteMapping(“/“)亦是如此。</li><li>6.至于Service层的作用，就是调Dao层的接口，用接口的原因，因java类是单继承，接口是多继承，在同一个Service接口中可以调用许多不同的Dao接口的方法。Dao层主要是实现了对数据库的访问，实现对数据库的增删改查。Service层为是为了丰富业务逻辑。<ul><li>6.1.譬如对用户登录的业务流程，Dao层是为了查询数据库是否有这样的对象并返回。Service层则是通过调用Dao的许多方法来完善这个登录的业务逻辑，调用的方法包括对数据库对应内容的查询。</li></ul></li><li>7.不使用Service层的话，那么如果想要换一种数据库语言的话，则需要对所有访问数据库的方法进行修改。如果使用了服务层，那么，只需要Dao层接口进行修改就可以了。服务层不需要做任何的改动。既实现了代码的重用，又实现了解耦。</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。&lt;/li&gt;&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="计算机" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="Java-Spring MVC" scheme="http://example.com/tags/Java-Spring-MVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重装Window10系统</title>
+    <link href="http://example.com/2021/01/29/article01/"/>
+    <id>http://example.com/2021/01/29/article01/</id>
+    <published>2021-01-29T08:24:03.000Z</published>
+    <updated>2021-01-29T14:13:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul><li>1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。<span id="more"></span></li><li>2.安装方式有直接在本地安装和U盘安装两种，我采用的是U盘作为启动盘安装镜像文件重做的Windows系统。</li><li>3.(以Win10为例) 安装所需：一个8G以上的空白U盘(有重要的文件可以先copy下来)，Windows10的镜像文件(没有可以在网上下载),一台正常运行的电脑。</li><li>4.插曲： 我在制作U盘启动盘的时候，手边就找到一个U盘，还是商家赠的，被写入了某种保护，不能正常存储。当然如果要重装系统必须要一个空白的可读可写的，所以经过相关了解采用如下的方式完成了普通U盘的还原。<ul><li>4.1. 下载ChipGenius芯片精灵软件，解压后执行.exe，而后插入U盘，检测U盘的供应商、设备名称、协议版本，最重要的是记下主控厂商和主控型号</li><li>4.2. 搜索”U盘量产网”，根据U盘的主控厂商和主控型号寻找对应的量产工具并下载。(以慧荣为例)<br><img src="http://lc-7vdt0zmw.cn-n1.lcfile.com/79e1fbadc544676be3cc.png/U%E7%9B%98%E9%87%8F%E4%BA%A7%E5%B7%A5%E5%85%B7.png" alt="U盘量产工具"></li><li>4.3. 下载完成后，软件所示如图，插入损坏的U盘后，某一Port的进程的进度条会变蓝，然后Start等待完成即可，参数默认，完成后拔插一次U盘即可完成U盘的还原。<br><img src="http://lc-7vdt0zmw.cn-n1.lcfile.com/134559edcb5cf292151c.png/%E9%87%8F%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%A4%BA%E4%BE%8B.png" alt="量产软件示例"></li></ul></li><li>5.最后再将U盘格式化一遍并把下载的Win10镜像文件放在U盘根目录下。至此，U盘的修复工作完成，即可投入正常使用。步入正题，制作U盘为启动盘。我用的是大白菜U盘制作软件。下载”大白菜超级U盘制作工具”，安装完成后执行即可识别插入的U盘，参数默认即可。点击一键USB启动盘，耐心等待完成。<br>  <img src="http://lc-7vdt0zmw.cn-n1.lcfile.com/82ad39763d74e8d438db.png/%E5%A4%A7%E7%99%BD%E8%8F%9C%E8%BD%AF%E4%BB%B6%E7%95%8C%E9%9D%A2%E7%A4%BA%E4%BE%8B.png" alt="大白菜软件界面示例"></li><li>6.完成后拔掉U盘重启电脑，第一次首先要进入BIOS(Basic Input Output System)。各大品牌电脑进入BIOS的按键不一，以Haier为例，详细机型查询下图。按F12或Del进入BIOS的设置界面。之所以要进入BIOS，说到底使用U盘的镜像安装系统，则需要先把U盘里的系统安装到电脑硬盘中替换电脑原来的系统(可以制作不同的启动盘完成Win7、Win10等多个版本的系统，在电脑启动之初可以选择启动的系统版本)，然后U盘拔出，电脑选择启动更新过的系统即可。首先需要将电脑默认的优先启动项设置成U盘否则默认进入的是电脑硬盘里存在的系统。<br>  <img src="http://lc-7vdt0zmw.cn-n1.lcfile.com/15fede6940ee012b0e06.png/%E5%90%84%E7%94%B5%E8%84%91BIOS%E7%83%AD%E9%94%AE%E6%A0%B7%E5%9B%BE.png" alt="各电脑BIOS热键样图"></li><li>7.进入BIOS的界面后，按方向键移动到”Boot”选项<br>  <img src="http://lc-7vdt0zmw.cn-n1.lcfile.com/bde762d762610c227b05.png/Haier%E7%A4%BA%E4%BE%8B.png" alt="Haier示例"></li><li>8.下方”Set Boot Priority”即设置系统的优先级，选择”1st Boot”按”Enter”在下拉选项里选择”USB Disk”的字样再次按回车，同样的设置硬盘启动为”2nd Boot ”。按”F10”保存退出。然后把U盘插入重启电脑，此时电脑进入的就是U盘的PE界面，所谓PE界面就是Windows的预安装环境。</li><li>9.进入PE界面后，选择”启动Win10 X64PE(2G以上内存)”，然后加载进入到了预安装的桌面，里面有”大白菜装机”点击执行，弹出界面选择下载好的镜像文件并选中盘符C作为系统盘，然后点击安装系统即可<br>  <img src="http://lc-7vdt0zmw.cn-n1.lcfile.com/8ddaaa4bff8cb682b61f.png/%E5%A4%A7%E7%99%BD%E8%8F%9CPE%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png" alt="大白菜PE管理界面"></li><li>10.PE的桌面还有一个分区工具，点击进入删除原有的所有分区(包括C分区)，删除后左上角点击磁盘，转换磁盘为GUID或者MBR模式，我选的是MBR，如果转换为GUID则会出现两个隐藏分区。转换为MBR模式后，保存更改，再选择快速分区，给系统盘分的多一些，我划分了80G，然后勾选”4个分区”、”对齐参数”字样，这样其余的空间就平均分给了除系统盘之外的盘符。最后保存更改。<br>  <img src="http://lc-7vdt0zmw.cn-n1.lcfile.com/56b0a38cb8802d42e757.png/%E5%88%86%E5%8C%BA%E5%B7%A5%E5%85%B7.png" alt="分区工具"><ul><li>10.1.小插曲： 之前选择的是GUID格式，但是导致了在优先级设置正常的情况下，重新启动电脑出现了”Invalid Partition table”分区表错误的字样进入不了系统。于是将GUID格式转换为MBR格式并重建主引导记录后无异常</li><li>10.2.<strong>关于GUID和MBR区别的相关资料：</strong><ul><li>10.2.1.分区表安全性不同。MBR的意思是“主引导记录”，它有自己的启动器，也就是启动代码，一旦启动代码被破坏，系统就没法启动，只有通过修复才能启动系统。而GUID分区表自带备份，在磁盘的首尾部分分别保存了一份相同的分区表。其中一份被破坏后，可以通过另一份恢复。</li><li>10.2.2.支持磁盘容量大小不同。MBR分区方案无法支持超过2TB容量的磁盘,也即3TB硬盘以MBR分区方案分区,有三分之一容量会认不到。以GUID分区表(GPT)方案分区则可认到最大18EB(18X1024GB)容量的磁盘。</li><li>10.2.3.分区个数不同。使用MBR分区表的硬盘最多只能划分4个主分区磁盘，而GPT分区表类型，此分区表类型不受分区个数限制。限制只在于操作系统——Windows支持最多128个GPT分区，而且你还不需要创建扩展分区</li><li>10.2.4.分区标识不同：GUID分区，每个分区可以有一个名称(不同于卷标)。</li></ul></li></ul></li><li>11.解决完所有问题后，再次进入BIOS设置硬盘为第一启动项，重启即可。由于之前把硬盘设置为了第二启动项，所以在完成之后只需要拔掉U盘即可进入硬盘安装好的系统了。</li><li>12.进入安装好的系统发现的问题：<ul><li>12.1.驱动问题：可以下载好驱动精灵等驱动软件到一个完好的U盘中(非启动盘)，然后copy到新系统的桌面安装更新驱动即可</li><li>12.2.桌面图标过大，分辨率不行：右键显示设置调节分辨率、缩放和桌面图标大小即可。我选的是1600x900。此外分辨率的好坏与显卡和显示器都有关系</li></ul></li></ul><hr><pre><code>至此，重装Win10的过程就到此结束了。对于过程中遇到的问题和困难，也算是大同小异，仅作记录用以提醒。不积跬步无以至千里，不积小流无以成江海。祝各位，前程似锦，不忘初心。</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。&lt;/li&gt;&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="计算机" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="Windows" scheme="http://example.com/tags/Windows/"/>
+    
+  </entry>
+  
+</feed>
