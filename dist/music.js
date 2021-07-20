@@ -8,14 +8,14 @@ const ap = new APlayer({
 	{
         name: "你不明白",
         artist: 'joysaaaa',
-        url: 'https://sharefs.tx.kugou.com/202107202311/c7288da894edf2bb3306e862c1f2945d/KGTX/CLTX001/a9ccd7d3d8ba5db04db395d45e6955a3.mp3',
+        url: 'https://sharefs.tx.kugou.com/202107202338/337f879eae854d997d046e9d8fe89281/KGTX/CLTX001/a9ccd7d3d8ba5db04db395d45e6955a3.mp3',
         cover: 'https://ftp.bmp.ovh/imgs/2021/07/3558bf1caf79ead8.jpg',
 		theme: '#ebd0c2'
       },
 	{
         name: "后劲",
         artist: '覆予',
-        url: 'https://sharefs.tx.kugou.com/202107202320/0aef38341b5bbcdb43716d288b141644/KGTX/CLTX001/7a0687cda4eb7e06b5fd6a4ea5596630.mp3',
+        url: 'https://sharefs.tx.kugou.com/202107202337/c227f9a72b5ca83b7f1e0cc9d0ee7011/KGTX/CLTX001/7a0687cda4eb7e06b5fd6a4ea5596630.mp3',
         cover: 'https://ftp.bmp.ovh/imgs/2021/07/f014b4b9abcec60a.jpg',
 		theme: '#ebd0c2'
       },
