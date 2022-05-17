@@ -1,7 +1,7 @@
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     //fixed: false,
-    autoplay: false,
+    autoplay: true,
 	listFolded: false,//列表默认折叠
     listMaxHeight: 90,//列表最大高度
     audio: [
