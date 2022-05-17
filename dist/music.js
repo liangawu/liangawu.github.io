@@ -6,19 +6,27 @@ const ap = new APlayer({
     listMaxHeight: 90,//列表最大高度
     audio: [
 	{
+        name: '回头看别回头走',
+        artist: '于东然',
+        url: 'http://lc-sWOcjNdz.cn-e1.lcfile.com/KuXvwLcvSHh99wBEBxIFB66jnJzbrrmB/%E4%BA%8E%E5%86%AC%E7%84%B6%20-%20%E5%9B%9E%E5%A4%B4%E7%9C%8B%E5%88%AB%E5%9B%9E%E5%A4%B4%E8%B5%B0.mp3',
+        cover: 'http://lc-sWOcjNdz.cn-e1.lcfile.com/DfKOXXvzSgsX88tF8Sucgdl6MFXEnKRr/%E5%9B%9E%E5%A4%B4%E7%9C%8B%E5%88%AB%E5%9B%9E%E5%A4%B4%E8%B5%B0.png',
+		theme: '#46718b'
+      },
+	{
         name: "你不明白",
         artist: 'joysaaaa',
-        url: 'https://sharefs.tx.kugou.com/202107202338/337f879eae854d997d046e9d8fe89281/KGTX/CLTX001/a9ccd7d3d8ba5db04db395d45e6955a3.mp3',
+        url: 'http://lc-sWOcjNdz.cn-e1.lcfile.com/VRosDkLWG6eDRqqBCd7kaPEAc4DOt0t2/joysaaaa%20-%20%E4%BD%A0%E4%B8%8D%E6%98%8E%E7%99%BD.mp3',
         cover: 'https://ftp.bmp.ovh/imgs/2021/07/3558bf1caf79ead8.jpg',
 		theme: '#ebd0c2'
       },
 	{
         name: "后劲",
         artist: '覆予',
-        url: 'https://sharefs.tx.kugou.com/202107202337/c227f9a72b5ca83b7f1e0cc9d0ee7011/KGTX/CLTX001/7a0687cda4eb7e06b5fd6a4ea5596630.mp3',
+        url: 'http://lc-sWOcjNdz.cn-e1.lcfile.com/sJ8g4Eg8BSklaXOc0jMwfxyGj5J79cFF/%E8%A6%86%E4%BA%88%20_%20%E5%B1%B1%E6%AD%A2%E5%B7%9D%E8%A1%8C%20-%20%E5%90%8E%E5%8A%B2%20%28%E5%90%89%E4%BB%96%E7%89%88%29.mp3',
         cover: 'https://ftp.bmp.ovh/imgs/2021/07/f014b4b9abcec60a.jpg',
 		theme: '#ebd0c2'
       },
+	/*
 	{
         name: "四季予你",
         artist: '程响',
@@ -33,19 +41,13 @@ const ap = new APlayer({
         cover: 'https://i.loli.net/2021/07/02/8rUqTXK2l3SIbLc.jpg',
 		theme: '#46718b'
       },
+	  */
 	   {
         name: "坠",
         artist: '添儿呗',
-        url: 'https://sharefs.ali.kugou.com/202107021325/3226e26dbe0c962c60630a4f49bbeaa6/G226/M04/14/17/gocBAF75az-Ac0WtADT3wRabL7o158.mp3',
+        url: 'http://lc-sWOcjNdz.cn-e1.lcfile.com/QyLm5fxpYp4WNldCntDYQD3cJ2KHkuRQ/%E6%B7%BB%E5%84%BF%E5%91%97%20-%20%E5%9D%A0.mp3',
         cover: 'https://i.loli.net/2021/07/02/pEucMC5t4lVUzTb.jpg',
 		theme: '#ebd0c2'
-      },
-      {
-        name: '你瞒我瞒',
-        artist: '陈柏宇',
-        url: 'https://sharefs.ali.kugou.com/202107021327/5cb8bd41baae1a9a20423208c0cb988e/KGTX/CLTX001/69b1328c3bd93c9405c92eb759299a0a.mp3',
-        cover: 'https://i.loli.net/2021/07/02/dwRFjhWLrCm8kHc.jpg',
-		theme: '#46718b'
       }
     ]
 });
