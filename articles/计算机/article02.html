@@ -24,20 +24,18 @@
 
   <meta name="description" content="1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MyBatis持久性框架">
-<meta property="og:url" content="http://example.com/2021/03/08/article03/index.html">
+<meta property="og:title" content="Dao层和Service层的记录(1)">
+<meta property="og:url" content="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02">
 <meta property="og:site_name" content="骑怪的梁阿无">
 <meta property="og:description" content="1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/.com//%5Carticle03%5C03-01.jpg">
-<meta property="article:published_time" content="2021-03-08T02:41:08.000Z">
-<meta property="article:modified_time" content="2021-03-08T08:16:26.000Z">
+<meta property="article:published_time" content="2021-03-08T02:05:24.000Z">
+<meta property="article:modified_time" content="2021-03-08T02:26:18.000Z">
 <meta property="article:author" content="梁阿无">
-<meta property="article:tag" content="MyBatis">
+<meta property="article:tag" content="Java-Spring MVC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//%5Carticle03%5C03-01.jpg">
 
-<link rel="canonical" href="http://example.com/2021/03/08/article03/">
+<link rel="canonical" href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02.html">
 
 
 <script id="page-configurations">
@@ -50,7 +48,7 @@
   };
 </script>
 
-  <title>MyBatis持久性框架 | 骑怪的梁阿无</title>
+  <title>Dao层和Service层的记录(1) | 骑怪的梁阿无</title>
   
 
 
@@ -214,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/08/article03/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/qiguai.jpg">
@@ -227,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          MyBatis持久性框架
+          Dao层和Service层的记录(1)
         </h1>
 
         <div class="post-meta">
@@ -238,7 +236,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-08 10:41:08 / 修改时间：16:16:26" itemprop="dateCreated datePublished" datetime="2021-03-08T10:41:08+08:00">2021-03-08</time>
+              <time title="创建时间：2021-03-08 10:05:24 / 修改时间：10:26:18" itemprop="dateCreated datePublished" datetime="2021-03-08T10:05:24+08:00">2021-03-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,8 +264,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/08/article03/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/08/article03/" itemprop="commentCount"></span>
+    <a title="valine" href="/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -284,57 +282,19 @@
       
         <ul>
 <li>1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。<span id="more"></span></li>
-<li>2.原始JDBC存在着频繁的连接、创建、释放导致系统资源浪费，从而影响性能，解决方法可以通过创建数据库连接池进行数据库性能的优化。</li>
-<li>3.sql语句的变化较多，并且使用preparedstatement存在较多的硬编码，以及对结果集的解析也存在较多硬编码，耦合度比较高，因而想要用框架进行封装进而优化数据库，所以出现了Mybatis框架。</li>
-<li>4.MyBatis是一款优秀的持久性框架，几乎免除了所有的JDBC代码以及设置参数和获取结果集的工作，MyBatis可以通过简单xml和注解来配置和映射原始类型、接口、和JavaPOJO**(Plain Old Java Objects,普通老式Java对象**)为数据库中的记录。</li>
-<li>5.ORM框架（<strong>对象关系映射的缩写</strong>），MyBatis是一款基于ORM框架实现的半自动轻量级持久层框架。</li>
-<li>6.开发流程：<ul>
-<li>6.1.添加MyBatis的jar包</li>
-<li>6.2.创建数据库实体表</li>
-<li>6.3.编写User实体类（<strong>成员变量的类型要与数据库的数据的类型要一一对应</strong>）</li>
-<li>6.4.编写映射实体类的xml文件<br>（通过配置类访问到对应实体类的映射文件xml，映射文件xml的定义：<br><code>&lt;mapper namespace=&quot;com.awu.mapper.UserMapper&quot;&gt;</code><br>根据namespace找到对应的实体类<figure class="highlight plaintext"><figcaption><span>id</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select * from user&lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;）```</span><br><span class="line">(*其中id 是对应的方法名，可以在执行时找到对应的实体类的代理对象的方法，resultType这是返回结果集的类型，此处表示是User类类型的*)</span><br><span class="line">   - 6.5.编写核心配置文件mybatis-config.xml</span><br><span class="line">   - 6.6.编写测试方法</span><br><span class="line">- 7.测试</span><br><span class="line">（*编写加载配置文件的路径，然后用*</span><br><span class="line">```Inputstream inutstream=Resource.getResourceAsStresm(resource )</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSessionFactory sqlSessionFactory =new SqlSessionFactoryBuilder().build(inputstream)//获得sqlsession工厂对象</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSession sqlSession =sqlSessionFactory.openSession();//设置sqlsession对象</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; users=sqlSession.selectList(&quot;com.awu.UserMapper.findAll&quot;) //执行sql语句</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(User user : users)&#123;</span><br><span class="line">System.our.println(user.toString())&#125;//打印结果</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>
-）</li>
+<li>2.mvc是一种结构模式，通过结构的设计达到程序解耦的作用。</li>
+<li>3.mvc调用过程：表示层调用控制层，控制层调用服务层，服务层调用Dao层。</li>
+<li>4.其实控制层做的事就是处理请求的路径，用RequestMapping(“/“)对类或者方法使用。放在类前表示这个资源请求的父路径，然后在具体的方法前使用@GetMapping(“/“)表示调用对应方法时具体的路径。<ul>
+<li>4.1.例如在Test类前添加@RequestMapping(“/user”)，其中Test类有一个名叫findAll的方法，那么可以在此方法前加GetMapping(“/findAll”)，当调用findAll方法的时候。在web请求中的路径即为localhost：8080/user/findAll。</li>
 </ul>
 </li>
-<li>8.除了用这种sqlSession方式，还可以用MyBatis代理开发的方式，Mapper接口的开发方法需要程序员编写Mapper接口（<strong>相当于dao接口</strong>），由MyBatis框架根据接口定义创建接口的动态代理对象。</li>
-<li>9.开发流程：<br>创建UserMapper接口，同时测试类中出现如下改动，在获取sqlSession对象后，不直接执行方法，而通过增加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserMapper userMapper =sqlSession.getMapper(UserMapper.class);</span><br></pre></td></tr></table></figure>
-获取其代理对象，进而调用userMapper的方法。</li>
-<li>10.Mapper.xml的namespace的全限定名和Mapper接口的全限定名一样。xml的id和Mapper接口的方法名要一致，并且Mapper接口方法的参数类型要和xml的resultType的类型要相同。</li>
-<li>11.<strong>Mybatis常用的API</strong><ul>
-<li>sqlSession</li>
-<li>sqlSessionFactory <em>工厂对象</em> </li>
-<li>Resource <em>资源类</em></li>
-<li>sqlSession.opneSession()</li>
-</ul>
-<em>//无参数表示非自动提交，有参数TRUE表示事务是自动提交的。</em><ul>
-<li>sqlSession <em>会话对象</em><br>（<em>包含执行语句，提交或者回滚以及获取映射器实例的方法</em>）</li>
+<li>5.至于@GetMapping(“/“)等价于@RequestMapping(“method= Request Method.GET”)，同理，PostMapping(“/“)，DeleteMapping(“/“)亦是如此。</li>
+<li>6.至于Service层的作用，就是调Dao层的接口，用接口的原因，因java类是单继承，接口是多继承，在同一个Service接口中可以调用许多不同的Dao接口的方法。Dao层主要是实现了对数据库的访问，实现对数据库的增删改查。Service层为是为了丰富业务逻辑。<ul>
+<li>6.1.譬如对用户登录的业务流程，Dao层是为了查询数据库是否有这样的对象并返回。Service层则是通过调用Dao的许多方法来完善这个登录的业务逻辑，调用的方法包括对数据库对应内容的查询。</li>
 </ul>
 </li>
-<li>12.（16:05）<strong>environment标签和mapper标签</strong><br>（<em>配置文件找到映射文件，映射文件再根据命名空间和id找到具体的类的具体的方法</em>）</li>
-<li>13.MyBatis的增删改查-<em>映射文件内标签内容的书写</em><ul>
-<li>13.1.－－<strong>根据用户编号查找用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where id=#&#123;id&#125;(使用这条语句的同时还需要在标签头添加参数标签，用以封装传过来的参数，其中#&#123;id｝就是传进来封装的参数值</span><br></pre></td></tr></table></figure></li>
-<li>13.2.－－<strong>根据用户名模糊查询用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where username like &#x27;%$&#123;value&#125;%&#x27;</span><br></pre></td></tr></table></figure></li>
-<li>13.3.－－<strong>添加客户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert&gt;</span><br><span class="line">insert into user&#123;username,jobs,phone&#125;values &#123;#&#123;username&#125;,#&#123;jobs,#&#123;phone&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></li>
+<li>7.不使用Service层的话，那么如果想要换一种数据库语言的话，则需要对所有访问数据库的方法进行修改。如果使用了服务层，那么，只需要Dao层接口进行修改就可以了。服务层不需要做任何的改动。既实现了代码的重用，又实现了解耦。</li>
 </ul>
-</li>
-</ul>
-<p><em>｛内容｝表示由用户传进来的参数的封装</em></p>
-<ul>
-<li>13.4.－－<strong>更新用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;update&gt;</span><br><span class="line">update user set username=#&#123;username&#125;,jobs=#&#123;jobs&#125;,phone=#&#123;phone&#125; where id=#&#123;id&#125;</span><br></pre></td></tr></table></figure></li>
-<li>13.5.－－<strong>删除用户信息</strong>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;</span><br><span class="line">delete from user where id=#&#123;id&#125;</span><br></pre></td></tr></table></figure></li>
-<li>14.*<em>MyBatis原理：**</em>  </li>
-</ul>
-<p><em>实现方式两种：sqlsession和基于sqlsession的mapper代理对象</em><br>功能架构分为三层：<br>接口层、数据处理层、框架支撑层<br>（增加数据接口&lt;－－参数映射，SQL解析，SQL执行，结果处理和映射&lt;－－xml配置，基于注解的配置）</p>
-<ul>
-<li>15.<strong>MyBatis的一级缓存和二级缓存：</strong><br>一级缓存是默认开启的，二级缓存是需要手动进行配置的，开启后的二级缓存还需要将实体类pojo实现serializable接口。数据的查询首先是查缓存，如果缓存中没有则再向数据库中找。所以在一二级缓存都存在的情况下，查询的流程是，首先在二级缓存中找同一个namespace下的多个sqlSession对象，然后通过一级缓存在每个sqlSession内查找数据，可以说二级缓存是基于命名空间查找的（<em>基于mapper映射文件的namspace实现的</em>），一级缓存是基于sqlSession查找的（<em>基于sqlSession实现的</em>），如果都找不到再查询数据库。</li>
-<li>16.二级缓存什么时候失效什么时候生效？<br> 答：当执行的sqlSession对象是位于同一个命名空间的不同sqlSession对象时，sql语句执行commit或close，一级缓存失效二级缓存生效，sql语句执行增删改操作时二级缓存失效一级缓存生效。</li>
-</ul>
-<hr>
-<p>   <img src="/.com//%5Carticle03%5C03-01.jpg"> </p>
 
     </div>
 
@@ -360,7 +320,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2021/03/08/article03/" title="MyBatis持久性框架">http://example.com/2021/03/08/article03/</a>
+    <a href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02" title="Dao层和Service层的记录(1)">http://example.com/articles/计算机/article02</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -390,7 +350,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/MyBatis/" rel="tag"># MyBatis</a>
+              <a href="/tags/Java-Spring-MVC/" rel="tag"># Java-Spring MVC</a>
           </div>
 
         
@@ -399,12 +359,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/08/article02/" rel="prev" title="Dao层和Service层的记录(1)">
-      <i class="fa fa-chevron-left"></i> Dao层和Service层的记录(1)
+    <a href="/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article01" rel="prev" title="重装Window10系统">
+      <i class="fa fa-chevron-left"></i> 重装Window10系统
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/01/hello-world/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
+    <a href="/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03" rel="next" title="MyBatis持久性框架">
+      MyBatis持久性框架 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -480,20 +440,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -545,7 +505,7 @@
 <div class="copyright">
   
   &copy; 2021-01 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

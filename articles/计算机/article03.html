@@ -22,28 +22,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。">
+  <meta name="description" content="1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义注解实现">
-<meta property="og:url" content="http://example.com/2022/05/17/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/index.html">
+<meta property="og:title" content="MyBatis持久性框架">
+<meta property="og:url" content="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03">
 <meta property="og:site_name" content="骑怪的梁阿无">
-<meta property="og:description" content="本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。">
+<meta property="og:description" content="1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205192358282.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205192359930.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205192359294.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205200000632.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205200000082.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205200000084.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205200001754.png">
-<meta property="article:published_time" content="2022-05-17T14:36:31.000Z">
-<meta property="article:modified_time" content="2022-05-19T16:01:14.180Z">
+<meta property="og:image" content="http://example.com/.com//%5Carticle03%5C03-01.jpg">
+<meta property="article:published_time" content="2021-03-08T02:41:08.000Z">
+<meta property="article:modified_time" content="2021-03-08T08:16:26.000Z">
 <meta property="article:author" content="梁阿无">
-<meta property="article:tag" content="序列化对象">
+<meta property="article:tag" content="MyBatis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205192358282.png">
+<meta name="twitter:image" content="http://example.com/.com//%5Carticle03%5C03-01.jpg">
 
-<link rel="canonical" href="http://example.com/2022/05/17/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/">
+<link rel="canonical" href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03.html">
 
 
 <script id="page-configurations">
@@ -56,7 +50,7 @@
   };
 </script>
 
-  <title>自定义注解实现 | 骑怪的梁阿无</title>
+  <title>MyBatis持久性框架 | 骑怪的梁阿无</title>
   
 
 
@@ -220,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/17/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/qiguai.jpg">
@@ -233,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          自定义注解实现
+          MyBatis持久性框架
         </h1>
 
         <div class="post-meta">
@@ -242,16 +236,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-05-17 22:36:31" itemprop="dateCreated datePublished" datetime="2022-05-17T22:36:31+08:00">2022-05-17</time>
+              <time title="创建时间：2021-03-08 10:41:08 / 修改时间：16:16:26" itemprop="dateCreated datePublished" datetime="2021-03-08T10:41:08+08:00">2021-03-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-20 00:01:14" itemprop="dateModified" datetime="2022-05-20T00:01:14+08:00">2022-05-20</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -278,8 +266,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2022/05/17/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/05/17/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" itemprop="commentCount"></span>
+    <a title="valine" href="/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -294,64 +282,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。</p>
-<span id="more"></span>
-
-<h3 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h3><ul>
-<li><p>在对接Bpm宏天工作流时，需要传递指定格式如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;businessKey&quot;: &quot;string&quot;,</span><br><span class="line">  &quot;data&quot;: &quot;string&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <ul>
+<li>1.本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。<span id="more"></span></li>
+<li>2.原始JDBC存在着频繁的连接、创建、释放导致系统资源浪费，从而影响性能，解决方法可以通过创建数据库连接池进行数据库性能的优化。</li>
+<li>3.sql语句的变化较多，并且使用preparedstatement存在较多的硬编码，以及对结果集的解析也存在较多硬编码，耦合度比较高，因而想要用框架进行封装进而优化数据库，所以出现了Mybatis框架。</li>
+<li>4.MyBatis是一款优秀的持久性框架，几乎免除了所有的JDBC代码以及设置参数和获取结果集的工作，MyBatis可以通过简单xml和注解来配置和映射原始类型、接口、和JavaPOJO**(Plain Old Java Objects,普通老式Java对象**)为数据库中的记录。</li>
+<li>5.ORM框架（<strong>对象关系映射的缩写</strong>），MyBatis是一款基于ORM框架实现的半自动轻量级持久层框架。</li>
+<li>6.开发流程：<ul>
+<li>6.1.添加MyBatis的jar包</li>
+<li>6.2.创建数据库实体表</li>
+<li>6.3.编写User实体类（<strong>成员变量的类型要与数据库的数据的类型要一一对应</strong>）</li>
+<li>6.4.编写映射实体类的xml文件<br>（通过配置类访问到对应实体类的映射文件xml，映射文件xml的定义：<br><code>&lt;mapper namespace=&quot;com.awu.mapper.UserMapper&quot;&gt;</code><br>根据namespace找到对应的实体类<figure class="highlight plaintext"><figcaption><span>id</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select * from user&lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;）```</span><br><span class="line">(*其中id 是对应的方法名，可以在执行时找到对应的实体类的代理对象的方法，resultType这是返回结果集的类型，此处表示是User类类型的*)</span><br><span class="line">   - 6.5.编写核心配置文件mybatis-config.xml</span><br><span class="line">   - 6.6.编写测试方法</span><br><span class="line">- 7.测试</span><br><span class="line">（*编写加载配置文件的路径，然后用*</span><br><span class="line">```Inputstream inutstream=Resource.getResourceAsStresm(resource )</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSessionFactory sqlSessionFactory =new SqlSessionFactoryBuilder().build(inputstream)//获得sqlsession工厂对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSession sqlSession =sqlSessionFactory.openSession();//设置sqlsession对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; users=sqlSession.selectList(&quot;com.awu.UserMapper.findAll&quot;) //执行sql语句</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(User user : users)&#123;</span><br><span class="line">System.our.println(user.toString())&#125;//打印结果</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>
+）</li>
+</ul>
 </li>
-<li><p>其中businessKey是用来映射流程模型的，而data里存放的则是JSON格式的表单数据。对于表单数据仍然需要拥有“Key”来映射表单。</p>
+<li>8.除了用这种sqlSession方式，还可以用MyBatis代理开发的方式，Mapper接口的开发方法需要程序员编写Mapper接口（<strong>相当于dao接口</strong>），由MyBatis框架根据接口定义创建接口的动态代理对象。</li>
+<li>9.开发流程：<br>创建UserMapper接口，同时测试类中出现如下改动，在获取sqlSession对象后，不直接执行方法，而通过增加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserMapper userMapper =sqlSession.getMapper(UserMapper.class);</span><br></pre></td></tr></table></figure>
+获取其代理对象，进而调用userMapper的方法。</li>
+<li>10.Mapper.xml的namespace的全限定名和Mapper接口的全限定名一样。xml的id和Mapper接口的方法名要一致，并且Mapper接口方法的参数类型要和xml的resultType的类型要相同。</li>
+<li>11.<strong>Mybatis常用的API</strong><ul>
+<li>sqlSession</li>
+<li>sqlSessionFactory <em>工厂对象</em> </li>
+<li>Resource <em>资源类</em></li>
+<li>sqlSession.opneSession()</li>
+</ul>
+<em>//无参数表示非自动提交，有参数TRUE表示事务是自动提交的。</em><ul>
+<li>sqlSession <em>会话对象</em><br>（<em>包含执行语句，提交或者回滚以及获取映射器实例的方法</em>）</li>
+</ul>
 </li>
-<li><p>不同的流程需要映射不同的Key，不同的表单也需要映射不同的Key。因此在传递data数据进行对象的序列化时需要动态变更不同对象的序列化名称。常见的做法是封装成DTO进行集成Set，但是缺点在于存在不同类型对象多个流程情况下代码不够解耦。并且当属性名变更时更改代码显得效率不高。因而想要实现注解方式通过更改配置或公共常量来完成代码的解耦和业务场景的实现</p>
+<li>12.（16:05）<strong>environment标签和mapper标签</strong><br>（<em>配置文件找到映射文件，映射文件再根据命名空间和id找到具体的类的具体的方法</em>）</li>
+<li>13.MyBatis的增删改查-<em>映射文件内标签内容的书写</em><ul>
+<li>13.1.－－<strong>根据用户编号查找用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where id=#&#123;id&#125;(使用这条语句的同时还需要在标签头添加参数标签，用以封装传过来的参数，其中#&#123;id｝就是传进来封装的参数值</span><br></pre></td></tr></table></figure></li>
+<li>13.2.－－<strong>根据用户名模糊查询用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where username like &#x27;%$&#123;value&#125;%&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>13.3.－－<strong>添加客户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert&gt;</span><br><span class="line">insert into user&#123;username,jobs,phone&#125;values &#123;#&#123;username&#125;,#&#123;jobs,#&#123;phone&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 </li>
 </ul>
-<h3 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h3><ol>
-<li><p>泛型加注解</p>
-</li>
-<li><p>泛型的目的是为了容纳不同类别的对象</p>
-</li>
-<li><p>注解的目的是在对象序列化时动态调整对象的名称</p>
-</li>
-<li><p>经过相关学习了解到，SerializeFilter是通过编程扩展的方式定制fastjso序列化。fastjson支持6种SerializeFilter，用于不同场景的定制序列化。NameFilter是其中之一。</p>
-</li>
-<li><p>根据源码得知，NameFilter下有一个process接口，该接口的目的是序列化时返回指定的名称。结合本次业务场景重写process方法即可。</p>
-<p><img src="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205192358282.png"></p>
-</li>
-</ol>
-<h3 id="定义注解前置学习"><a href="#定义注解前置学习" class="headerlink" title="定义注解前置学习"></a>定义注解前置学习</h3><ol>
-<li>首先在定义注解前要了解，两个注解，@Rentention和@Target。</li>
-<li>@Rentention主要是用来修饰注解的生命周期及作用范围，一共有RententionPolicy.SOURCE、RententionPolicy.CLASS、RententionPolicy.RUNTIME三种类型。默认是CLASS类型的，生命周期从小到大排序为SOURCE/CLASS/RUNTIME。</li>
-<li>三者区别在于SOURCE只保留在源文件中，当.java编译成.class时注解就会消失。CLASS则会保留到变成.class的时候，但.class被加载成字节码的时候注解会消失，而RUNTIME存在的时间最久，在运行时仍然是生效的。</li>
-<li>至于怎么选择三种类型以实际开发为准，像SOURCE这种存在时间短的一般二开应用场景不多，而CLASS这种一般用于编译时对代码规范的检查例如@Override等，而我选择RUNTIME是因为业务场景都是在系统运行时需要使用的。而@Target简而言之就是对注解使用范围的说明，包下、方法中、参数上等等。</li>
-</ol>
-<h3 id="实现思路及过程"><a href="#实现思路及过程" class="headerlink" title="实现思路及过程"></a>实现思路及过程</h3><ul>
-<li><p>本次自定义注解实现时，定义了两个接口和一个实现类，最外层的注解是一个注解接口，MyParamName，MyParamName中存在两个属性，一个是默认序列化的名称，另一个是数组类型的动态取到的名称。</p>
-<p><img src="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205192359930.png"></p>
-</li>
-<li><p>其中数组类型是第二个注解，NameEle。NameEle中存在id和value两个参数。它的作用是在面对多个参数时，动态选择需要映射成的value，有点key-value的意思。当然这两个注解都属于可以运行时生效的注解。</p>
-<p><img src="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205192359294.png"></p>
-</li>
-<li><p>最后是定义实现类实现fastjson的nameFilter接口，重写process方法。</p>
-<p><img src="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205200000632.png"></p>
-</li>
-<li><p>重写的逻辑大致是通过反射获取注解名为MyParamName的注解，然后遍历MyParamName中的两个参数，如果默认序列化名称不为空且第二个注解参数NameEle为空则返回默认名称，此种情况用于判断单个参数的取值。如果NameEle非空，则通过遍历数组NameEle利用NameFilter定义的id属性和NameEle中的id进行匹配，取出指定的value值即可。</p>
-</li>
+<p><em>｛内容｝表示由用户传进来的参数的封装</em></p>
+<ul>
+<li>13.4.－－<strong>更新用户信息</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;update&gt;</span><br><span class="line">update user set username=#&#123;username&#125;,jobs=#&#123;jobs&#125;,phone=#&#123;phone&#125; where id=#&#123;id&#125;</span><br></pre></td></tr></table></figure></li>
+<li>13.5.－－<strong>删除用户信息</strong>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;</span><br><span class="line">delete from user where id=#&#123;id&#125;</span><br></pre></td></tr></table></figure></li>
+<li>14.*<em>MyBatis原理：**</em>  </li>
 </ul>
-<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><ul>
-<li><p>泛型DTO</p>
-<p><img src="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205200000082.png"></p>
-</li>
-<li><p>动态序列化</p>
-<p><img src="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205200000084.png"></p>
-</li>
-<li><p>效果</p>
-<p><img src="https://raw.githubusercontent.com/liangawu/UploadImages/main/202205200001754.png"></p>
-</li>
+<p><em>实现方式两种：sqlsession和基于sqlsession的mapper代理对象</em><br>功能架构分为三层：<br>接口层、数据处理层、框架支撑层<br>（增加数据接口&lt;－－参数映射，SQL解析，SQL执行，结果处理和映射&lt;－－xml配置，基于注解的配置）</p>
+<ul>
+<li>15.<strong>MyBatis的一级缓存和二级缓存：</strong><br>一级缓存是默认开启的，二级缓存是需要手动进行配置的，开启后的二级缓存还需要将实体类pojo实现serializable接口。数据的查询首先是查缓存，如果缓存中没有则再向数据库中找。所以在一二级缓存都存在的情况下，查询的流程是，首先在二级缓存中找同一个namespace下的多个sqlSession对象，然后通过一级缓存在每个sqlSession内查找数据，可以说二级缓存是基于命名空间查找的（<em>基于mapper映射文件的namspace实现的</em>），一级缓存是基于sqlSession查找的（<em>基于sqlSession实现的</em>），如果都找不到再查询数据库。</li>
+<li>16.二级缓存什么时候失效什么时候生效？<br> 答：当执行的sqlSession对象是位于同一个命名空间的不同sqlSession对象时，sql语句执行commit或close，一级缓存失效二级缓存生效，sql语句执行增删改操作时二级缓存失效一级缓存生效。</li>
 </ul>
-<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h3><ul>
-<li>除了nameFilter外，fastjson还提供了PropertyPreFilter(根据Key判断是否序列化) 、PropertyFilter(根据属性名Key和属性值Value来判断是否序列化)、ValueFilter (修改Value)、BeforeFilter (序列化时在最前添加内容)、AfterFilter(序列化时在最后添加内容)等接口。</li>
-</ul>
+<hr>
+<p>   <img src="/.com//%5Carticle03%5C03-01.jpg"> </p>
 
     </div>
 
@@ -377,7 +360,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/05/17/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" title="自定义注解实现">http://example.com/2022/05/17/自定义注解/</a>
+    <a href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03" title="MyBatis持久性框架">http://example.com/articles/计算机/article03</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -407,7 +390,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96%E5%AF%B9%E8%B1%A1/" rel="tag"># 序列化对象</a>
+              <a href="/tags/MyBatis/" rel="tag"># MyBatis</a>
           </div>
 
         
@@ -416,10 +399,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/09/14/article04-1/" rel="prev" title="Docker记录(1)">
-      <i class="fa fa-chevron-left"></i> Docker记录(1)
+    <a href="/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02" rel="prev" title="Dao层和Service层的记录(1)">
+      <i class="fa fa-chevron-left"></i> Dao层和Service层的记录(1)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/articles/uncategorized/hello-world" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -479,7 +465,6 @@
 	  
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">设计思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E5%89%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.</span> <span class="nav-text">定义注解前置学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%E5%8F%8A%E8%BF%87%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">实现思路及过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%95%88%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-number">6.</span> <span class="nav-text">Tips:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -495,20 +480,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -560,7 +545,7 @@
 <div class="copyright">
   
   &copy; 2021-01 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

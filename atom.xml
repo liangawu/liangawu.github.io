@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-19T16:01:14.180Z</updated>
+  <updated>2025-01-31T09:38:55.657Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,9 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DeepSeek-V1本地化部署</title>
+    <link href="http://example.com/articles/AI/DeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2"/>
+    <id>http://example.com/articles/AI/DeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2</id>
+    <published>2025-01-31T09:07:10.000Z</published>
+    <updated>2025-01-31T09:38:55.657Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>除夕深度求索产品问世，Win本地化部署初尝。本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。 <span id="more"></span></p><h3 id="产品安装"><a href="#产品安装" class="headerlink" title="产品安装"></a>产品安装</h3><p><a href="https://ollama.com/">官网</a></p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C03.png"></p><p>Download栏目 根据OS 确定产品支持类型</p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C01.png"></p><p>下载完成，执行exe文件，默认安装是在系统盘下。可通过调整环境变量调整文件存储路径。注：在未启动OLLAMA的情况下进行更改，如已经启动可重启OLLAMA。</p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C02.png"></p><h4 id="更改存储路径"><a href="#更改存储路径" class="headerlink" title="更改存储路径"></a>更改存储路径</h4><p>系统设置》关于》高级系统设置</p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C06.png"></p><p>系统级变量 key：OLLAMA_MODELS  value：需要存储的路径</p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C07.png"></p><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>可按需拉取 不同的语言模型，性能较差用1.5b，一般用7b，也可根据实际需要选择。推荐r1或者qwen2。</p><p>执行命令：ollama run deepseek-r1:7b</p><p>拉取成功后即可在命令行直接进行QA问答。</p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C08.png"></p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C09.png"></p><h3 id="UI界面"><a href="#UI界面" class="headerlink" title="UI界面"></a>UI界面</h3><p>如果需要可视化界面控制大模型，较为主流的两种工具如：chatBox、OI(Open webUI)。前者开箱即用，后者需要些许计算机基础。后者更贴合Ollama产品环境。</p><h4 id="ChatBox"><a href="#ChatBox" class="headerlink" title="ChatBox"></a>ChatBox</h4><p>网页版和本地下载均可</p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C10.png"></p><h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C11.png"></p><h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C12.png"></p><h4 id="Open-WebUI"><a href="#Open-WebUI" class="headerlink" title="Open WebUI"></a>Open WebUI</h4><p><a href="https://docs.openwebui.com/">续，可参考官方文档</a></p><h3 id="Q-A"><a href="#Q-A" class="headerlink" title="Q/A"></a>Q/A</h3><p>Q1：本地Ollama无法被其他产品如ChatBox访问到</p><p>A1：环境变量 配置开放Host及跨域问题</p><p><img src="/.com//D:%5CSoftware%5CBlog%5Csource%5C_posts%5CDeepSeek-V1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2%5C13.png"></p><p>续…</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;除夕深度求索产品问世，Win本地化部署初尝。本文仅用作自己在学习路上遇到问题、解决问题方面的记录。如被提供给同样在此方面遇到问题的同学参考，不胜荣幸。若文中有出现纰漏不够严谨之处，望海涵。意见之处，不吝赐教。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="AI" scheme="http://example.com/categories/AI/"/>
+    
+    
+    <category term="DeepSeek" scheme="http://example.com/tags/DeepSeek/"/>
+    
+  </entry>
+  
+  <entry>
     <title>自定义注解实现</title>
-    <link href="http://example.com/2022/05/17/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/"/>
-    <id>http://example.com/2022/05/17/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/</id>
+    <link href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"/>
+    <id>http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3</id>
     <published>2022-05-17T14:36:31.000Z</published>
     <updated>2022-05-19T16:01:14.180Z</updated>
     
@@ -39,8 +60,8 @@
   
   <entry>
     <title>Docker记录(1)</title>
-    <link href="http://example.com/2021/09/14/article04-1/"/>
-    <id>http://example.com/2021/09/14/article04-1/</id>
+    <link href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article04-1"/>
+    <id>http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article04-1</id>
     <published>2021-09-14T12:44:55.000Z</published>
     <updated>2021-09-14T12:54:54.727Z</updated>
     
@@ -61,8 +82,8 @@
   
   <entry>
     <title>Centos下部署docker及其他常用容器部署(1)</title>
-    <link href="http://example.com/2021/07/20/article04/"/>
-    <id>http://example.com/2021/07/20/article04/</id>
+    <link href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article04"/>
+    <id>http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article04</id>
     <published>2021-07-20T13:53:02.000Z</published>
     <updated>2021-07-20T15:08:37.702Z</updated>
     
@@ -83,12 +104,12 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2021/07/01/hello-world/"/>
-    <id>http://example.com/2021/07/01/hello-world/</id>
+    <link href="http://example.com/articles/uncategorized/hello-world"/>
+    <id>http://example.com/articles/uncategorized/hello-world</id>
     <published>2021-07-01T07:55:29.388Z</published>
     <updated>2021-12-15T16:27:20.365Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script src=/js/crypto-js.js></script><script>function doDecrypt (pwd, onError) {console.log('in doDecrypt');const txt = document.getElementById('enc_content').innerHTML;let plantext;try {const bytes = CryptoJS.AES.decrypt(txt, pwd);var plaintext = bytes.toString(CryptoJS.enc.Utf8);} catch(err) {if(onError) {onError(err);}return;}document.getElementById('enc_content').innerHTML = plaintext;document.getElementById('enc_content').style.display = 'block';document.getElementById('enc_passwd').style.display = 'none';if(typeof MathJax !== 'undefined') {MathJax.Hub.Queue(['resetEquationNumbers', MathJax.InputJax.TeX],['PreProcess', MathJax.Hub],['Reprocess', MathJax.Hub]);}}</script><div id="enc_content" style="display:none">U2FsdGVkX1+V0K25Quwh29FdulZHr9A0ZYCXeyA4psa0x5ehCjI1m9z7in80+Qr7x8Q4SqTommILFX6lbH9PWNUrH+ic8w/hV5mnhop6OrVGRtndJDBkE74VwdrRxv91ZfDC1vO1eFDuZo9bxt+UH0mxzan5EGcLXd8+6++HwhTzIXFWcf+WMgAFubh1c8OrgEOR41NKIimtRhdnq28SDwxapTR91oCTi1JAUIHnVZwjCPj6qn+TSDgpY/qE+hqryBToTbieiI8os/k3N0wcpwxIU0bDnz2981vSaCNVuJtzhzdYbczL+vdVzib7Qi/GEXlvXznhEvr/Pd/cD8M4bXotGU+1n9Ga8Q+mxZ2GmJDbfFpt6cl79CtmfhPpvB6Mg/MkbLypdqaRjeKpvyvah5www0OZV5s72RoB08uebmcpH0WHS1eU05jtlIt7hPafj963vHjIyl+E6P/HBfTWbeFy79bLiDFKcpQV+NsVBjg/kcsGAr7wOmD9Bx0FwXini014ZUlnmStP9BcfE/Hm5R/27+7MOC4GDejaLLU+orbEFdDlEizRCJQ9vqQvmoFTcVMf9aNQxXrIFP8cN9gzdLQNeaDq/Ia3697hDy5oGfcMuX6CLKVekcXSDQGy61+R4uMfJtSWbyGe6bJD6OZOCgYHxq7qbMT1vylSemkSqLipsyuZFZI6ZPmfO90zjKJa7DqTbK048+FtLAbcQmxLgU6q0xOzwl/f1GrLHkuFA8C4VE4aXTdr8BuHrb9kRipukB3lJwlKsjaULzt+Z0u72yMDOZ5aPfHYX6ILLADkomkm60Vh94jMOuDPvzm6MKwfV1FTpMGHNgeNU7tYwQ6UZRVGcXAZa8ekyuj4ebUiiXmjHTPgHl+wemlOTvIbb1D7JPQ68utK5KHa/kYhHOFxtXYx5smSBfVfeaar4w0/EkBsUcOrNbo7Q5hNEhOUtD5AuqCCGvpPqVh6HJHzHG3Js/I1qs4Gh6JYLS4VkY+xStX2z7wtcaFdo4wHLrYvVKIxY7TuQVxqIQZKAmn9qgppz1kWbzF57arCdHuItKS+8RJpw6w6lcdQRvLkaV9UszhUV5/+jXBboCcTaygCRce1fJ8C4KLybhnZNtE2aM2tGIqj8cdCvoWnPQ5spuqkiTgJ6h9/KmBHBxe5pJNMC4VjCRSsa8g1KXxbyJ4UMTRdvR49vAzQz9xPm4GZWKDZPWOU9Dcd0Ja5Q688hIAtfmPDLLQs2I+gylp3hxulCI0wRyk4QH7L3rXmpPONTTKXHXLOppQHIlSIpyu7f0a4KwKqp77f2WbPJtSpMbgv34UwLWf3GF6soCs/0wIK8ctakNrMtElR4r6LX2Po/FbD0KZAVtJLAuFxgLJvMlHaPANOnbYUS3JijJcFZGq4V13xUyxNUJKophTMQjebw5RuJcxXLFwHmdsfeKO/lWMqupOr+U4CqAsQ/rOgsrT86EvjzY3OCS5FIa2cFnDwFFHpM+Q89JvR/Wh9Gujjt1JIDCT6iiJmHbrbwFi+ougektTcZYI3lc3jQBREqTeU0rPgnEUDXGNZaB8kIUz0f/+gxlOxHLkJqQx59iRgmknODIRRdJxJa3f2NBU8pmO+T2d1A3hXGDczvnmrrGewCji7ux5cAJNlhKBBx6zjp1TaLKNlzl9nEBCw9aIBVkpCpCrTMPx+F/dBvG/c7H4EkKJvXokjoy0Bsu69nh3SzNpBWtIkLdORGsV6boQfVWI0o/kaa789kAsGZkhbu8PBag8lgtBdrbGC0lN2kRHS/s68pq7wOeIjhxq18z9vk3U6fQw2FYbL5oCx955M7z5RkeB4lPwTv+/d9FPdDQ7ewZilvSk85I5bhdlWcprGLx3cH0T4MvAqObZIKkUOZzLdXJ45XpfsNMvB4fGqN3D4/38cbUU1tOWQTRrAzwcfh85K2T6hc2aJ5hhZgd/eTcfl7MmqoIAs5qaDQ7glkitNYS0iWzBoNDJ1DWXUqPWKFFOr9of0Fzko5JpJ9VQXaQZcLyEApOJC2YhlTnVUNatdLvp//JNn6rRfTjF4qTyGH9G2ZmH658GZ30StsVRJoD4iGTxn6u5wnB5NxLxTMGNHLGGykUT3vZzdiLrKxOR8ivi7G7Dwqvlha0QM9t+gxp15EnrEXuzDMWzEO4joiC3gyRq6Sw3eGZuIWghBmqU94OPlgeMbF6uiSsYlan2ambpwAdUAUPrEgi5cmmZesM/FTgN2kTjb560UyRKuoz9yBhbl/ROkwnJT4A8GK5uWnRVu3r8OaZwzAZDFZZrRzmEcWtgAzMf/zSutF1TkUq5Is3iXeNq7Nq0WTPGdRJFbf0YEVZlgKVZYwGWi7ISmAFrHQXd9s9n/gv3OlH2/yeF9BXuVng2ZlmfnOzblxmYFk08XyaRd/i6x03BtscBOKjo/0/KjWWjupXK40N+Dilj5TKHK8NKCWjTp/VxVKFQpECvuvuxhIjzxiyRmQY/m5+JObpgpCHfD4EIRYhr52u6Budjkx8FJzpTO6xF5UyN8jtlxveI4ythRU5cMmWJLBKHFAFiI4GoeWYbFTTb6gX9YLVAEbFCdVxLT/uc6eJoTxAkzqwor0+5k4G1+R1mmWYlNyYM6LrYMtx/6isyVcd1egAw1X9Sx5ypltEvwWU/MbhsH8iH/uIRfY+/FuJDWMlf0isjJgi5dZH5WAeAjO2DmWSqXR/AKitWyPWpB8VqEEnjzAKs9kPhgCMV7grzzG0xsYtB9BBi9oTSJ3wxC5tDKc7NbgO9gkBtttyjCVjTCWAjdRXEkJYryGwDLI2HFAAbK2U8aLb6ral414RVly3Rb2+MrmG4gNNIBSq6XlqZTwntbh43SZMQRqveNwA1QMQ9jOWU3DuuzsCIsAz1+ULxK5r6AkRL4ktwtl4VP7X+yIPpxnxykwU6qzgm2ocbzfUZwzD1UisDybwfo0n+ATkPrM2BpKiQ/RD73T8Jy1bcuvsSdsp7kZV52nyA=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div><script>var onError = function(error) {document.getElementById("enc_error").innerHTML = "password error!"};function decrypt() {var passwd = document.getElementById("enc_pwd_input").value;console.log(passwd);doDecrypt(passwd, onError);}</script></div>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script src=/js/crypto-js.js></script><script>function doDecrypt (pwd, onError) {console.log('in doDecrypt');const txt = document.getElementById('enc_content').innerHTML;let plantext;try {const bytes = CryptoJS.AES.decrypt(txt, pwd);var plaintext = bytes.toString(CryptoJS.enc.Utf8);} catch(err) {if(onError) {onError(err);}return;}document.getElementById('enc_content').innerHTML = plaintext;document.getElementById('enc_content').style.display = 'block';document.getElementById('enc_passwd').style.display = 'none';if(typeof MathJax !== 'undefined') {MathJax.Hub.Queue(['resetEquationNumbers', MathJax.InputJax.TeX],['PreProcess', MathJax.Hub],['Reprocess', MathJax.Hub]);}}</script><div id="enc_content" style="display:none">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</div><div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div><script>var onError = function(error) {document.getElementById("enc_error").innerHTML = "password error!"};function decrypt() {var passwd = document.getElementById("enc_pwd_input").value;console.log(passwd);doDecrypt(passwd, onError);}</script></div>]]></content>
     
     
     <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</summary>
@@ -100,8 +121,8 @@
   
   <entry>
     <title>MyBatis持久性框架</title>
-    <link href="http://example.com/2021/03/08/article03/"/>
-    <id>http://example.com/2021/03/08/article03/</id>
+    <link href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03"/>
+    <id>http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article03</id>
     <published>2021-03-08T02:41:08.000Z</published>
     <updated>2021-03-08T08:16:26.000Z</updated>
     
@@ -122,8 +143,8 @@
   
   <entry>
     <title>Dao层和Service层的记录(1)</title>
-    <link href="http://example.com/2021/03/08/article02/"/>
-    <id>http://example.com/2021/03/08/article02/</id>
+    <link href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02"/>
+    <id>http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article02</id>
     <published>2021-03-08T02:05:24.000Z</published>
     <updated>2021-03-08T02:26:18.000Z</updated>
     
@@ -144,8 +165,8 @@
   
   <entry>
     <title>重装Window10系统</title>
-    <link href="http://example.com/2021/01/29/article01/"/>
-    <id>http://example.com/2021/01/29/article01/</id>
+    <link href="http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article01"/>
+    <id>http://example.com/articles/%E8%AE%A1%E7%AE%97%E6%9C%BA/article01</id>
     <published>2021-01-29T08:24:03.000Z</published>
     <updated>2021-01-29T14:13:52.000Z</updated>
     
