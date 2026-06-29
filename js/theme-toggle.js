@@ -8,37 +8,25 @@
     'use strict';
 
     // 主题键名
-    const THEME_KEY = 'blog_theme';
-    const UPGRADED_THEME = 'upgraded';
-    const ORIGINAL_THEME = 'original';
-
-    // 改进主题的CSS文件 - 使用相对路径让Hexo处理
-    const UPGRADED_CSS = '/css/_data/upgraded-theme.styl';
+    var THEME_KEY = 'blog_theme';
+    var UPGRADED_THEME = 'upgraded';
+    var ORIGINAL_THEME = 'original';
 
     // 主题切换按钮模板
-    const toggleButtonHTML = `
-        <div class="theme-toggle-wrapper" style="margin: 15px 0;">
-            <div class="theme-toggle" id="theme-toggle" title="点击切换主题风格">
-                <span class="theme-icon" id="theme-icon">
-                    <i class="fa fa-palette"></i>
-                </span>
-                <span class="theme-text" id="theme-text">换主题</span>
-            </div>
-        </div>
-    `;
-
-    // CSS链接元素
-    let upgradedCSSLink = null;
+    var toggleButtonHTML = 
+        '<div class="theme-toggle-wrapper" style="margin: 15px 0;">' +
+            '<div class="theme-toggle" id="theme-toggle" title="点击切换主题风格">' +
+                '<span class="theme-icon" id="theme-icon"><i class="fa fa-palette"></i></span>' +
+                '<span class="theme-text" id="theme-text">换主题</span>' +
+            '</div>' +
+        '</div>';
 
     /**
      * 初始化主题
      */
     function initTheme() {
-        // 创建或获取CSS链接
-        createUpgradedCSSLink();
-        
         // 获取保存的主题
-        const savedTheme = localStorage.getItem(THEME_KEY);
+        var savedTheme = localStorage.getItem(THEME_KEY);
         
         if (savedTheme === UPGRADED_THEME) {
             applyUpgradedTheme();
@@ -54,34 +42,17 @@
     }
 
     /**
-     * 创建改进主题的CSS链接
-     */
-    function createUpgradedCSSLink() {
-        // 检查是否已存在
-        upgradedCSSLink = document.getElementById('upgraded-theme-css');
-        
-        if (!upgradedCSSLink) {
-            upgradedCSSLink = document.createElement('link');
-            upgradedCSSLink.rel = 'stylesheet';
-            upgradedCSSLink.href = UPGRADED_CSS;
-            upgradedCSSLink.id = 'upgraded-theme-css';
-            upgradedCSSLink.disabled = true; // 默认禁用
-            document.head.appendChild(upgradedCSSLink);
-        }
-    }
-
-    /**
      * 添加切换按钮到侧边栏
      */
     function addToggleButton() {
         // 移除已存在的按钮（防止重复添加）
-        const existingBtn = document.querySelector('.theme-toggle-wrapper');
+        var existingBtn = document.querySelector('.theme-toggle-wrapper');
         if (existingBtn) {
             existingBtn.remove();
         }
 
         // 尝试多个可能的选择器找到侧边栏容器
-        const selectors = [
+        var selectors = [
             '.sidebar .site-overview',
             '.sidebar-inner',
             '.site-overview',
@@ -89,19 +60,17 @@
             '.sidebar'
         ];
 
-        let container = null;
-        for (const selector of selectors) {
-            container = document.querySelector(selector);
+        var container = null;
+        for (var i = 0; i < selectors.length; i++) {
+            container = document.querySelector(selectors[i]);
             if (container) {
-                console.log('Theme toggle: Found container:', selector);
                 break;
             }
         }
 
         if (!container) {
-            console.log('Theme toggle: Container not found, using fixed position');
             // 如果找不到容器，使用固定定位
-            const wrapper = document.createElement('div');
+            var wrapper = document.createElement('div');
             wrapper.className = 'theme-toggle-wrapper';
             wrapper.innerHTML = toggleButtonHTML;
             wrapper.style.cssText = 'position:fixed;bottom:30px;right:30px;z-index:9999;';
@@ -110,12 +79,12 @@
         }
 
         // 创建主题切换按钮容器
-        const toggleWrapper = document.createElement('div');
+        var toggleWrapper = document.createElement('div');
         toggleWrapper.className = 'theme-toggle-wrapper';
         toggleWrapper.innerHTML = toggleButtonHTML;
         
-        // 插入到侧边栏的开头（在博主信息后面）
-        const firstWidget = container.querySelector('.site-author');
+        // 插入到侧边栏的开头
+        var firstWidget = container.querySelector('.site-author');
         if (firstWidget && firstWidget.nextSibling) {
             container.insertBefore(toggleWrapper, firstWidget.nextSibling);
         } else {
@@ -127,7 +96,7 @@
      * 绑定切换事件
      */
     function bindToggleEvent() {
-        const toggleBtn = document.getElementById('theme-toggle');
+        var toggleBtn = document.getElementById('theme-toggle');
         if (toggleBtn) {
             toggleBtn.addEventListener('click', toggleTheme);
         }
@@ -137,7 +106,7 @@
      * 切换主题
      */
     function toggleTheme() {
-        const currentTheme = localStorage.getItem(THEME_KEY);
+        var currentTheme = localStorage.getItem(THEME_KEY);
         
         if (currentTheme === UPGRADED_THEME) {
             applyOriginalTheme();
@@ -156,11 +125,6 @@
         // 添加主题class
         document.body.classList.add('theme-upgraded');
         
-        // 启用CSS
-        if (upgradedCSSLink) {
-            upgradedCSSLink.disabled = false;
-        }
-        
         // 保存到localStorage
         localStorage.setItem(THEME_KEY, UPGRADED_THEME);
         
@@ -178,11 +142,6 @@
         // 移除主题class
         document.body.classList.remove('theme-upgraded');
         
-        // 禁用CSS
-        if (upgradedCSSLink) {
-            upgradedCSSLink.disabled = true;
-        }
-        
         // 保存到localStorage
         localStorage.setItem(THEME_KEY, ORIGINAL_THEME);
         
@@ -197,8 +156,8 @@
      * 更新切换按钮状态
      */
     function updateToggleButton(theme) {
-        const themeIcon = document.getElementById('theme-icon');
-        const themeText = document.getElementById('theme-text');
+        var themeIcon = document.getElementById('theme-icon');
+        var themeText = document.getElementById('theme-text');
         
         if (theme === UPGRADED_THEME) {
             if (themeIcon) {
@@ -221,7 +180,7 @@
      * 切换动画效果
      */
     function playToggleAnimation() {
-        const toggleBtn = document.getElementById('theme-toggle');
+        var toggleBtn = document.getElementById('theme-toggle');
         if (toggleBtn) {
             toggleBtn.style.transform = 'scale(1.2) rotate(180deg)';
             toggleBtn.classList.add('rotating');
@@ -242,12 +201,12 @@
      */
     function showToast(message) {
         // 移除已存在的toast
-        const existingToast = document.querySelector('.theme-toast');
+        var existingToast = document.querySelector('.theme-toast');
         if (existingToast) {
             existingToast.remove();
         }
 
-        const toast = document.createElement('div');
+        var toast = document.createElement('div');
         toast.className = 'theme-toast';
         toast.textContent = message;
         toast.style.cssText = [
@@ -268,7 +227,7 @@
 
         // 添加动画样式（如果不存在）
         if (!document.getElementById('theme-toast-styles')) {
-            const style = document.createElement('style');
+            var style = document.createElement('style');
             style.id = 'theme-toast-styles';
             style.textContent = [
                 '@keyframes toastSlideIn {',
@@ -303,13 +262,11 @@
         initTheme();
         
         // 如果页面使用了PJAX，监听页面切换
-        if (typeof Pjax !== 'undefined') {
-            document.addEventListener('pjax:complete', function() {
-                setTimeout(initTheme, 100);
-            });
-        }
+        document.addEventListener('pjax:complete', function() {
+            setTimeout(initTheme, 100);
+        });
         
-        // 监听hash变化（某些SPA实现）
+        // 监听hash变化
         window.addEventListener('hashchange', function() {
             setTimeout(initTheme, 100);
         });

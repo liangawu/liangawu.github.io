@@ -1175,7 +1175,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0fff04;
+  background: #ffccb4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2827,6 +2827,264 @@ body.theme-upgraded .theme-toggle:hover {
 .theme-toggle.rotating .theme-icon {
   animation: themeRotate 0.5s ease-in-out;
 }
+/* ==============================
+   升级主题样式 - 毛玻璃 + 渐变 + 现代化设计
+   ============================== */
+/* 1. 全局渐变背景 */
+body.theme-upgraded {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center !important;
+  color: #e4e4e7;
+}
+/* 2. 毛玻璃效果 - 内容区域 */
+body.theme-upgraded .main-inner {
+  background: rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded .main-inner:hover {
+  box-shadow: 0 12px 48px rgba(0,0,0,0.4) !important;
+}
+/* 3. 毛玻璃效果 - 侧边栏 */
+body.theme-upgraded .sidebar {
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2) !important;
+}
+/* 4. 毛玻璃效果 - 文章块 */
+body.theme-upgraded .post-block,
+body.theme-upgraded .tabs-comment,
+body.theme-upgraded .comments,
+body.theme-upgraded .pagination {
+  background: rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+/* 5. 标题样式 - 渐变文字 */
+body.theme-upgraded .site-title,
+body.theme-upgraded .posts .post-title a,
+body.theme-upgraded .page-title {
+  background: linear-gradient(90deg, #00d9ff, #0f8) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+/* 6. 导航菜单 - 玻璃按钮 */
+body.theme-upgraded .menu-item a {
+  background: rgba(255,255,255,0.08) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded .menu-item a:hover {
+  background: rgba(0,217,255,0.2) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(0,217,255,0.3) !important;
+}
+/* 7. 文章标题 */
+body.theme-upgraded .post-body h1,
+body.theme-upgraded .post-body h2,
+body.theme-upgraded .post-body h3 {
+  color: #00d9ff !important;
+  border-bottom: 1px solid rgba(0,217,255,0.3) !important;
+  padding-bottom: 8px !important;
+}
+/* 8. 链接颜色 - 科技蓝 */
+body.theme-upgraded a {
+  color: #00d9ff !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded a:hover {
+  color: #0f8 !important;
+  text-shadow: 0 0 8px rgba(0,255,136,0.5) !important;
+}
+/* 9. 代码块 - 暗色科技风 */
+body.theme-upgraded code {
+  background: rgba(0,217,255,0.15) !important;
+  color: #0f8 !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(0,217,255,0.3) !important;
+}
+body.theme-upgraded pre {
+  background: rgba(0,0,0,0.4) !important;
+  border: 1px solid rgba(0,217,255,0.2) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+}
+body.theme-upgraded pre code {
+  background: transparent !important;
+  border: none !important;
+}
+/* 10. 标签样式 */
+body.theme-upgraded .post-tags .tag-link {
+  background: linear-gradient(135deg, rgba(0,217,255,0.2), rgba(0,255,136,0.2)) !important;
+  border: 1px solid rgba(0,217,255,0.4) !important;
+  border-radius: 20px !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded .post-tags .tag-link:hover {
+  background: linear-gradient(135deg, rgba(0,217,255,0.4), rgba(0,255,136,0.4)) !important;
+  transform: scale(1.05) !important;
+}
+/* 11. 引用块 - 渐变边框 */
+body.theme-upgraded blockquote {
+  background: linear-gradient(135deg, rgba(0,217,255,0.1), rgba(0,255,136,0.1)) !important;
+  border-left: 4px solid #00d9ff !important;
+  border-radius: 0 8px 8px 0 !important;
+  box-shadow: 0 2px 16px rgba(0,217,255,0.2) !important;
+}
+/* 12. 按钮样式 */
+body.theme-upgraded .btn {
+  background: linear-gradient(135deg, #00d9ff, #0f8) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #1a1a2e !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded .btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0,217,255,0.4) !important;
+}
+/* 13. 输入框 */
+body.theme-upgraded input[type="text"],
+body.theme-upgraded input[type="email"],
+body.theme-upgraded textarea {
+  background: rgba(255,255,255,0.1) !important;
+  border: 1px solid rgba(0,217,255,0.3) !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded input:focus,
+body.theme-upgraded textarea:focus {
+  border-color: #00d9ff !important;
+  box-shadow: 0 0 16px rgba(0,217,255,0.3) !important;
+  outline: none !important;
+}
+/* 14. 滚动条 - 科技风格 */
+body.theme-upgraded ::-webkit-scrollbar {
+  width: 8px !important;
+}
+body.theme-upgraded ::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05) !important;
+}
+body.theme-upgraded ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00d9ff, #0f8) !important;
+  border-radius: 4px !important;
+}
+/* 15. 站点概览卡片 */
+body.theme-upgraded .site-author {
+  background: rgba(255,255,255,0.05) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+}
+body.theme-upgraded .site-author-image {
+  border: 3px solid #00d9ff !important;
+  box-shadow: 0 0 20px rgba(0,217,255,0.4) !important;
+}
+/* 16. 统计数字 - 发光效果 */
+body.theme-upgraded .site-state-item-count {
+  background: linear-gradient(90deg, #00d9ff, #0f8) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: bold !important;
+}
+/* 17. 友链卡片 */
+body.theme-upgraded .links-of-blogroll {
+  background: rgba(255,255,255,0.05) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+}
+body.theme-upgraded .links-of-blogroll-item a {
+  background: rgba(0,217,255,0.1) !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded .links-of-blogroll-item a:hover {
+  background: rgba(0,217,255,0.25) !important;
+  transform: translateX(4px) !important;
+}
+/* 18. 返回顶部按钮 */
+body.theme-upgraded .back-to-top {
+  background: linear-gradient(135deg, #00d9ff, #0f8) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 20px rgba(0,217,255,0.4) !important;
+}
+/* 19. 页面头部光环效果 */
+body.theme-upgraded .headband {
+  background: linear-gradient(90deg, transparent, #00d9ff, #0f8, #00d9ff, transparent) !important;
+  background-size: 200% 100% !important;
+  animation: gradient-shift 3s ease infinite !important;
+}
+/* 20. 页脚 */
+body.theme-upgraded .footer {
+  background: rgba(0,0,0,0.3) !important;
+  backdrop-filter: blur(10px) !important;
+}
+body.theme-upgraded .footer .powered-by,
+body.theme-upgraded .footer .copyright {
+  color: rgba(255,255,255,0.7) !important;
+}
+/* 21. TOC 目录 */
+body.theme-upgraded .toc li a {
+  color: rgba(255,255,255,0.7) !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded .toc li a:hover,
+body.theme-upgraded .toc .active a {
+  color: #00d9ff !important;
+  text-shadow: 0 0 8px rgba(0,217,255,0.5) !important;
+}
+/* 22. 移动端适配 */
+@media (max-width: 767px) {
+  body.theme-upgraded .main-inner {
+    background: rgba(255,255,255,0.1) !important;
+    border-radius: 0 !important;
+  }
+}
+/* 23. 社交链接图标 */
+body.theme-upgraded .links-of-author-item a {
+  background: rgba(0,217,255,0.15) !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded .links-of-author-item a:hover {
+  background: linear-gradient(135deg, #00d9ff, #0f8) !important;
+  transform: scale(1.1) rotate(360deg) !important;
+}
+/* 24. 文章列表卡片 */
+body.theme-upgraded .post {
+  background: rgba(255,255,255,0.06) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  transition: all 0.3s ease !important;
+}
+body.theme-upgraded .post:hover {
+  background: rgba(255,255,255,0.1) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(0,217,255,0.2) !important;
+}
+/* 25. 分类标签 */
+body.theme-upgraded .category-count,
+body.theme-upgraded .tag-count {
+  background: linear-gradient(135deg, rgba(0,217,255,0.2), rgba(0,255,136,0.2)) !important;
+  border-radius: 50% !important;
+}
+/* 26. 升级主题下的背景图片隐藏 */
+body.theme-upgraded .footer::before {
+  display: none !important;
+}
 @-moz-keyframes themeRotate {
   from {
     transform: rotate(0deg);
@@ -2857,5 +3115,49 @@ body.theme-upgraded .theme-toggle:hover {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@-moz-keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
