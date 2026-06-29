@@ -1175,7 +1175,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fffced;
+  background: #0fff04;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2778,4 +2778,84 @@ body {
 .main-inner {
   background-color: rgba(255,255,255,0);
   padding: 0px 40px 40px 40px;
+}
+/* ==============================
+   主题切换按钮样式
+   ============================== */
+.theme-toggle-wrapper {
+  margin: 15px 0;
+  padding: 0;
+}
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 25px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+  user-select: none;
+}
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102,126,234,0.5);
+}
+.theme-toggle:active {
+  transform: translateY(0);
+}
+.theme-toggle .theme-icon {
+  font-size: 16px;
+}
+.theme-toggle .theme-text {
+  letter-spacing: 1px;
+}
+/* 升级主题下的按钮样式 */
+body.theme-upgraded .theme-toggle {
+  background: linear-gradient(135deg, #00d9ff 0%, #0f8 100%);
+  box-shadow: 0 4px 20px rgba(0,217,255,0.4);
+}
+body.theme-upgraded .theme-toggle:hover {
+  box-shadow: 0 6px 25px rgba(0,217,255,0.5);
+}
+/* 按钮旋转动画 */
+.theme-toggle.rotating .theme-icon {
+  animation: themeRotate 0.5s ease-in-out;
+}
+@-moz-keyframes themeRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes themeRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes themeRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes themeRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
