@@ -1175,7 +1175,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f2f;
+  background: #2478c4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2780,384 +2780,379 @@ body {
   padding: 0px 40px 40px 40px;
 }
 /* ==============================
-   主题切换按钮样式
+   主题切换按钮样式 - 简约专业
    ============================== */
-.theme-toggle-wrapper {
+.sidebar-toggle-wrapper {
   margin: 15px 0;
-  padding: 0;
 }
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 25px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
+  gap: 6px;
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  color: #666;
+  font-size: 13px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102,126,234,0.4);
-  user-select: none;
+  transition: all 0.25s ease;
 }
 .theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102,126,234,0.5);
-}
-.theme-toggle:active {
-  transform: translateY(0);
+  border-color: rgba(0,0,0,0.35);
+  color: #333;
+  background: rgba(0,0,0,0.03);
 }
 .theme-toggle .theme-icon {
-  font-size: 16px;
+  font-size: 14px;
 }
 .theme-toggle .theme-text {
-  letter-spacing: 1px;
-}
-/* 升级主题下的按钮样式 */
-body.theme-upgraded .theme-toggle {
-  background: linear-gradient(135deg, #00d9ff 0%, #0f8 100%);
-  box-shadow: 0 4px 20px rgba(0,217,255,0.4);
-}
-body.theme-upgraded .theme-toggle:hover {
-  box-shadow: 0 6px 25px rgba(0,217,255,0.5);
-}
-/* 按钮旋转动画 */
-.theme-toggle.rotating .theme-icon {
-  animation: themeRotate 0.5s ease-in-out;
+  letter-spacing: 0.5px;
 }
 /* ==============================
-   升级主题样式 - 毛玻璃 + 渐变 + 现代化设计
+   新主题 - 简约大气专业风格
+   参考：Notion、Medium、GitHub 设计风格
    ============================== */
-/* 1. 全局渐变背景 */
+/* 1. 柔和暖色调背景 - 类似 Notion/Medium */
 body.theme-upgraded {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
-  background-attachment: fixed !important;
-  background-size: cover !important;
-  background-position: center !important;
-  color: #e4e4e7;
+  background: #f8f9fa !important;
+  color: #24292f !important;
 }
-/* 2. 毛玻璃效果 - 内容区域 */
+/* 2. 纯净白色内容区 - 无毛玻璃，纯净专业 */
 body.theme-upgraded .main-inner {
-  background: rgba(255,255,255,0.08) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
-  transition: all 0.3s ease !important;
+  background: #fff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+  transition: box-shadow 0.25s ease !important;
 }
 body.theme-upgraded .main-inner:hover {
-  box-shadow: 0 12px 48px rgba(0,0,0,0.4) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
 }
-/* 3. 毛玻璃效果 - 侧边栏 */
+/* 3. 侧边栏 - 简洁线条 */
 body.theme-upgraded .sidebar {
-  background: rgba(255,255,255,0.05) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2) !important;
+  background: transparent !important;
 }
-/* 4. 毛玻璃效果 - 文章块 */
-body.theme-upgraded .post-block,
-body.theme-upgraded .tabs-comment,
-body.theme-upgraded .comments,
-body.theme-upgraded .pagination {
-  background: rgba(255,255,255,0.06) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(255,255,255,0.1) !important;
-}
-/* 5. 标题样式 - 渐变文字 */
+/* 4. 标题 - 沉稳深色，不过度装饰 */
 body.theme-upgraded .site-title,
 body.theme-upgraded .posts .post-title a,
 body.theme-upgraded .page-title {
-  background: linear-gradient(90deg, #00d9ff, #0f8) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  color: #1a1a1a !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
 }
-/* 6. 导航菜单 - 玻璃按钮 */
-body.theme-upgraded .menu-item a {
-  background: rgba(255,255,255,0.08) !important;
-  border-radius: 8px !important;
-  transition: all 0.3s ease !important;
+/* 5. 文章标题层级 */
+body.theme-upgraded .post-body h1 {
+  color: #1a1a1a !important;
+  font-weight: 600 !important;
+  font-size: 1.75em !important;
+  border-bottom: 2px solid #eaeaea !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 20px !important;
 }
-body.theme-upgraded .menu-item a:hover {
-  background: rgba(0,217,255,0.2) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 16px rgba(0,217,255,0.3) !important;
-}
-/* 7. 文章标题 */
-body.theme-upgraded .post-body h1,
-body.theme-upgraded .post-body h2,
-body.theme-upgraded .post-body h3 {
-  color: #00d9ff !important;
-  border-bottom: 1px solid rgba(0,217,255,0.3) !important;
+body.theme-upgraded .post-body h2 {
+  color: #2d2d2d !important;
+  font-weight: 600 !important;
+  font-size: 1.4em !important;
+  border-bottom: 1px solid #eaeaea !important;
   padding-bottom: 8px !important;
 }
-/* 8. 链接颜色 - 科技蓝 */
+body.theme-upgraded .post-body h3 {
+  color: #3d3d3d !important;
+  font-weight: 500 !important;
+}
+/* 6. 链接 - 沉稳蓝色，不过度发光 */
 body.theme-upgraded a {
-  color: #00d9ff !important;
-  transition: all 0.3s ease !important;
+  color: #0969da !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
 }
 body.theme-upgraded a:hover {
-  color: #0f8 !important;
-  text-shadow: 0 0 8px rgba(0,255,136,0.5) !important;
+  color: #0550ae !important;
+  text-decoration: underline !important;
 }
-/* 9. 代码块 - 暗色科技风 */
+/* 7. 代码块 - 简洁风格，类似 GitHub */
 body.theme-upgraded code {
-  background: rgba(0,217,255,0.15) !important;
-  color: #0f8 !important;
+  background: #f6f8fa !important;
+  color: #24292f !important;
+  border: 1px solid #e1e4e8 !important;
   border-radius: 4px !important;
-  border: 1px solid rgba(0,217,255,0.3) !important;
+  padding: 2px 6px !important;
+  font-size: 0.9em !important;
 }
 body.theme-upgraded pre {
-  background: rgba(0,0,0,0.4) !important;
-  border: 1px solid rgba(0,217,255,0.2) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+  background: #f6f8fa !important;
+  border: 1px solid #e1e4e8 !important;
+  border-radius: 6px !important;
+  padding: 16px !important;
+  overflow-x: auto !important;
 }
 body.theme-upgraded pre code {
   background: transparent !important;
   border: none !important;
+  padding: 0 !important;
 }
-/* 10. 标签样式 */
+/* 8. 标签 - 简洁胶囊样式 */
 body.theme-upgraded .post-tags .tag-link {
-  background: linear-gradient(135deg, rgba(0,217,255,0.2), rgba(0,255,136,0.2)) !important;
-  border: 1px solid rgba(0,217,255,0.4) !important;
+  background: #f3f4f6 !important;
+  border: 1px solid #e5e7eb !important;
   border-radius: 20px !important;
-  transition: all 0.3s ease !important;
+  color: #374151 !important;
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+  transition: all 0.2s ease !important;
 }
 body.theme-upgraded .post-tags .tag-link:hover {
-  background: linear-gradient(135deg, rgba(0,217,255,0.4), rgba(0,255,136,0.4)) !important;
-  transform: scale(1.05) !important;
+  background: #e5e7eb !important;
+  color: #1f2937 !important;
+  text-decoration: none !important;
 }
-/* 11. 引用块 - 渐变边框 */
+/* 9. 引用块 - 简洁左边框 */
 body.theme-upgraded blockquote {
-  background: linear-gradient(135deg, rgba(0,217,255,0.1), rgba(0,255,136,0.1)) !important;
-  border-left: 4px solid #00d9ff !important;
-  border-radius: 0 8px 8px 0 !important;
-  box-shadow: 0 2px 16px rgba(0,217,255,0.2) !important;
+  background: #f9fafb !important;
+  border-left: 3px solid #d1d5db !important;
+  border-radius: 0 4px 4px 0 !important;
+  padding: 12px 16px !important;
+  margin: 16px 0 !important;
+  color: #4b5563 !important;
 }
-/* 12. 按钮样式 */
-body.theme-upgraded .btn {
-  background: linear-gradient(135deg, #00d9ff, #0f8) !important;
-  border: none !important;
-  border-radius: 8px !important;
-  color: #1a1a2e !important;
-  font-weight: bold !important;
-  transition: all 0.3s ease !important;
+body.theme-upgraded blockquote p {
+  margin: 0 !important;
+  color: #4b5563 !important;
 }
-body.theme-upgraded .btn:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(0,217,255,0.4) !important;
+/* 10. 导航菜单 - 简洁横线 */
+body.theme-upgraded .menu-item a {
+  background: transparent !important;
+  border-radius: 4px !important;
+  color: #57606a !important;
+  transition: all 0.2s ease !important;
 }
-/* 13. 输入框 */
-body.theme-upgraded input[type="text"],
-body.theme-upgraded input[type="email"],
-body.theme-upgraded textarea {
-  background: rgba(255,255,255,0.1) !important;
-  border: 1px solid rgba(0,217,255,0.3) !important;
-  border-radius: 8px !important;
-  color: #fff !important;
-  transition: all 0.3s ease !important;
+body.theme-upgraded .menu-item a:hover {
+  background: #f3f4f6 !important;
+  color: #1a1a1a !important;
 }
-body.theme-upgraded input:focus,
-body.theme-upgraded textarea:focus {
-  border-color: #00d9ff !important;
-  box-shadow: 0 0 16px rgba(0,217,255,0.3) !important;
-  outline: none !important;
+/* 11. 站点概览卡片 - 去除模糊 */
+body.theme-upgraded .site-author {
+  background: transparent !important;
+  padding: 0 !important;
 }
-/* 14. 滚动条 - 科技风格 */
+body.theme-upgraded .site-author-image {
+  border: 2px solid #e5e7eb !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+}
+body.theme-upgraded .site-author-name {
+  color: #1a1a1a !important;
+  font-weight: 500 !important;
+}
+body.theme-upgraded .site-description {
+  color: #57606a !important;
+  font-size: 13px !important;
+}
+/* 12. 统计数字 - 简洁深色 */
+body.theme-upgraded .site-state-item-count {
+  color: #1a1a1a !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  font-weight: 600 !important;
+}
+body.theme-upgraded .site-state-item-name {
+  color: #57606a !important;
+}
+/* 13. 友链 - 简洁卡片 */
+body.theme-upgraded .links-of-blogroll {
+  background: transparent !important;
+  padding: 0 !important;
+}
+body.theme-upgraded .links-of-blogroll-item a {
+  background: #f3f4f6 !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  color: #57606a !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-upgraded .links-of-blogroll-item a:hover {
+  background: #e5e7eb !important;
+  color: #1a1a1a !important;
+}
+/* 14. 滚动条 - 简洁灰色 */
 body.theme-upgraded ::-webkit-scrollbar {
   width: 8px !important;
 }
 body.theme-upgraded ::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.05) !important;
+  background: transparent !important;
 }
 body.theme-upgraded ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00d9ff, #0f8) !important;
+  background: #d1d5db !important;
   border-radius: 4px !important;
 }
-/* 15. 站点概览卡片 */
-body.theme-upgraded .site-author {
-  background: rgba(255,255,255,0.05) !important;
-  border-radius: 12px !important;
-  padding: 20px !important;
-  margin-bottom: 20px !important;
+body.theme-upgraded ::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af !important;
 }
-body.theme-upgraded .site-author-image {
-  border: 3px solid #00d9ff !important;
-  box-shadow: 0 0 20px rgba(0,217,255,0.4) !important;
-}
-/* 16. 统计数字 - 发光效果 */
-body.theme-upgraded .site-state-item-count {
-  background: linear-gradient(90deg, #00d9ff, #0f8) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  font-weight: bold !important;
-}
-/* 17. 友链卡片 */
-body.theme-upgraded .links-of-blogroll {
-  background: rgba(255,255,255,0.05) !important;
-  border-radius: 12px !important;
-  padding: 16px !important;
-}
-body.theme-upgraded .links-of-blogroll-item a {
-  background: rgba(0,217,255,0.1) !important;
-  border-radius: 6px !important;
-  padding: 4px 12px !important;
-  transition: all 0.3s ease !important;
-}
-body.theme-upgraded .links-of-blogroll-item a:hover {
-  background: rgba(0,217,255,0.25) !important;
-  transform: translateX(4px) !important;
-}
-/* 18. 返回顶部按钮 */
-body.theme-upgraded .back-to-top {
-  background: linear-gradient(135deg, #00d9ff, #0f8) !important;
-  border-radius: 50% !important;
-  box-shadow: 0 4px 20px rgba(0,217,255,0.4) !important;
-}
-/* 19. 页面头部光环效果 */
+/* 15. 头部线条 - 简洁单线 */
 body.theme-upgraded .headband {
-  background: linear-gradient(90deg, transparent, #00d9ff, #0f8, #00d9ff, transparent) !important;
-  background-size: 200% 100% !important;
-  animation: gradient-shift 3s ease infinite !important;
+  background: #24292f !important;
+  height: 3px !important;
 }
-/* 20. 页脚 */
+/* 16. 页脚 - 简洁深色 */
 body.theme-upgraded .footer {
-  background: rgba(0,0,0,0.3) !important;
-  backdrop-filter: blur(10px) !important;
+  background: transparent !important;
 }
 body.theme-upgraded .footer .powered-by,
 body.theme-upgraded .footer .copyright {
-  color: rgba(255,255,255,0.7) !important;
+  color: #57606a !important;
+  font-size: 13px !important;
 }
-/* 21. TOC 目录 */
+/* 17. 社交图标 - 简洁圆形 */
+body.theme-upgraded .links-of-author-item a {
+  background: transparent !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  color: #57606a !important;
+}
+body.theme-upgraded .links-of-author-item a:hover {
+  background: #f3f4f6 !important;
+  border-color: #d1d5db !important;
+  color: #1a1a1a !important;
+  transform: none !important;
+}
+/* 18. 文章列表 - 简洁卡片 */
+body.theme-upgraded .post {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 20px 0 !important;
+  border-bottom: 1px solid #eaeaea !important;
+  transition: none !important;
+}
+body.theme-upgraded .post:hover {
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+/* 19. 文章标题悬停 */
+body.theme-upgraded .posts .post-title a {
+  color: #1a1a1a !important;
+  transition: color 0.2s ease !important;
+}
+body.theme-upgraded .posts .post-title a:hover {
+  color: #0969da !important;
+}
+/* 20. 分类/标签页 */
+body.theme-upgraded .category-list-item,
+body.theme-upgraded .tag-list-item {
+  background: #f3f4f6 !important;
+  border-radius: 4px !important;
+  padding: 4px 12px !important;
+  margin: 4px !important;
+}
+/* 21. TOC 目录 - 简洁侧边栏 */
 body.theme-upgraded .toc li a {
-  color: rgba(255,255,255,0.7) !important;
-  transition: all 0.3s ease !important;
+  color: #57606a !important;
+  transition: color 0.2s ease !important;
 }
 body.theme-upgraded .toc li a:hover,
 body.theme-upgraded .toc .active a {
-  color: #00d9ff !important;
-  text-shadow: 0 0 8px rgba(0,217,255,0.5) !important;
+  color: #0969da !important;
 }
-/* 22. 移动端适配 */
+/* 22. 按钮样式 - 简洁扁平 */
+body.theme-upgraded .btn {
+  background: #f3f4f6 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  color: #374151 !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-upgraded .btn:hover {
+  background: #e5e7eb !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+/* 23. 输入框 - 简洁边框 */
+body.theme-upgraded input[type="text"],
+body.theme-upgraded input[type="email"],
+body.theme-upgraded textarea {
+  background: #fff !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+  color: #1a1a1a !important;
+  padding: 8px 12px !important;
+  transition: border-color 0.2s ease !important;
+}
+body.theme-upgraded input:focus,
+body.theme-upgraded textarea:focus {
+  border-color: #0969da !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+/* 24. 返回顶部 - 简洁圆形 */
+body.theme-upgraded .back-to-top {
+  background: #f3f4f6 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+  color: #57606a !important;
+}
+body.theme-upgraded .back-to-top:hover {
+  background: #e5e7eb !important;
+}
+/* 25. 升级主题按钮样式 */
+body.theme-upgraded .theme-toggle {
+  border-color: #d1d5db !important;
+  color: #57606a !important;
+}
+body.theme-upgraded .theme-toggle:hover {
+  background: #f3f4f6 !important;
+  border-color: #9ca3af !important;
+}
+/* 26. 移动端适配 */
 @media (max-width: 767px) {
   body.theme-upgraded .main-inner {
-    background: rgba(255,255,255,0.1) !important;
+    background: #fff !important;
     border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  body.theme-upgraded .post {
+    padding: 16px 0 !important;
   }
 }
-/* 23. 社交链接图标 */
-body.theme-upgraded .links-of-author-item a {
-  background: rgba(0,217,255,0.15) !important;
-  border-radius: 50% !important;
-  transition: all 0.3s ease !important;
+/* 27. 分割线 - 简洁 */
+body.theme-upgraded hr {
+  border: none !important;
+  border-top: 1px solid #eaeaea !important;
+  margin: 24px 0 !important;
 }
-body.theme-upgraded .links-of-author-item a:hover {
-  background: linear-gradient(135deg, #00d9ff, #0f8) !important;
-  transform: scale(1.1) rotate(360deg) !important;
+/* 28. 表格 - 简洁边框 */
+body.theme-upgraded table {
+  border-collapse: collapse !important;
+  width: 100% !important;
 }
-/* 24. 文章列表卡片 */
-body.theme-upgraded .post {
-  background: rgba(255,255,255,0.06) !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  transition: all 0.3s ease !important;
+body.theme-upgraded table th,
+body.theme-upgraded table td {
+  border: 1px solid #e5e7eb !important;
+  padding: 8px 12px !important;
 }
-body.theme-upgraded .post:hover {
-  background: rgba(255,255,255,0.1) !important;
-  transform: translateY(-4px) !important;
-  box-shadow: 0 12px 40px rgba(0,217,255,0.2) !important;
+body.theme-upgraded table th {
+  background: #f9fafb !important;
+  font-weight: 500 !important;
 }
-/* 25. 分类标签 */
-body.theme-upgraded .category-count,
-body.theme-upgraded .tag-count {
-  background: linear-gradient(135deg, rgba(0,217,255,0.2), rgba(0,255,136,0.2)) !important;
-  border-radius: 50% !important;
+/* 29. 图片 - 简洁圆角 */
+body.theme-upgraded .post-body img {
+  border-radius: 6px !important;
+  box-shadow: none !important;
 }
-/* 26. 升级主题下的背景图片隐藏 */
-body.theme-upgraded .footer::before {
-  display: none !important;
-}
-@-moz-keyframes themeRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes themeRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes themeRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes themeRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@-moz-keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-webkit-keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-o-keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* 30. 提示消息 - 简洁风格 */
+body.theme-upgraded .theme-toast {
+  background: #1a1a1a !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
 }
