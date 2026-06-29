@@ -26,7 +26,7 @@ const ap = new APlayer({
         cover: 'https://ftp.bmp.ovh/imgs/2021/07/f014b4b9abcec60a.jpg',
 		theme: '#ebd0c2'
       },
-	/*
+	
 	{
         name: "四季予你",
         artist: '程响',
@@ -40,15 +40,23 @@ const ap = new APlayer({
         url: 'https://sharefs.ali.kugou.com/202107021324/fe88c804ec7df047c1e5373688b09865/G159/M0A/00/0D/f5QEAFy9LYSAFvRfADme8sxJysc695.mp3',
         cover: 'https://i.loli.net/2021/07/02/8rUqTXK2l3SIbLc.jpg',
 		theme: '#46718b'
-      },
-	  */
-	   {
+      }，
+	  	 {
         name: "坠",
         artist: '添儿呗',
         url: 'http://lc-sWOcjNdz.cn-e1.lcfile.com/QyLm5fxpYp4WNldCntDYQD3cJ2KHkuRQ/%E6%B7%BB%E5%84%BF%E5%91%97%20-%20%E5%9D%A0.mp3',
         cover: 'https://i.loli.net/2021/07/02/pEucMC5t4lVUzTb.jpg',
 		theme: '#ebd0c2'
       }
+	  /*
+	  	，{
+        name: '万水千山',
+        artist: '周杰伦',
+        url: 'http://lc-sWOcjNdz.cn-e1.lcfile.com/KuXvwLcvSHh99wBEBxIFB66jnJzbrrmB/%E4%BA%8E%E5%86%AC%E7%84%B6%20-%20%E5%9B%9E%E5%A4%B4%E7%9C%8B%E5%88%AB%E5%9B%9E%E5%A4%B4%E8%B5%B0.mp3',
+        cover: 'http://lc-sWOcjNdz.cn-e1.lcfile.com/DfKOXXvzSgsX88tF8Sucgdl6MFXEnKRr/%E5%9B%9E%E5%A4%B4%E7%9C%8B%E5%88%AB%E5%9B%9E%E5%A4%B4%E8%B5%B0.png',
+		theme: '#46718b'
+      }，
+	  */
     ]
 });
 /*const ap = new APlayer({
