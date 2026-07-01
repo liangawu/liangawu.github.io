@@ -382,6 +382,31 @@ td {
   transform: rotate(45deg);
   top: -5px;
 }
+.highlight-container {
+  position: relative;
+}
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  font-size: 0.8125em;
+  right: 4px;
+  top: 8px;
+}
 .highlight,
 pre {
   background: #f7f7f7;
@@ -809,6 +834,11 @@ pre .javascript .function {
 .post-body .note.danger h6 {
   color: #d9534f;
 }
+.pdfobject-container iframe,
+.pdfobject-container embed {
+  height: 500px;
+  width: 100%;
+}
 .pagination .prev,
 .pagination .next,
 .pagination .page-number,
@@ -857,7 +887,8 @@ pre .javascript .function {
 .pagination .next {
   margin-right: 0;
 }
-.pagination .page-number.current {
+.pagination .page-number.current,
+.algolia-pagination .current .page-number {
   background: #ccc;
   border-top-color: #ccc;
   color: #fff;
@@ -1104,6 +1135,102 @@ pre .javascript .function {
 .use-motion .menu-item {
   opacity: 0;
 }
+.book-mark-link {
+  border-bottom: none;
+  display: inline-block;
+  position: fixed;
+  right: 30px;
+  top: -10px;
+  transition: 0.3s;
+}
+@media (max-width: 991px) {
+  .book-mark-link {
+    display: none;
+  }
+}
+.book-mark-link::before {
+  color: #222;
+  content: '\f02e';
+  font-size: 32px;
+  line-height: 1;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.book-mark-link:hover,
+.book-mark-link-fixed {
+  top: -2px;
+}
+.github-corner :hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner svg {
+  border: 0;
+  color: #fff;
+  fill: #222;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+@media (max-width: 991px) {
+  .github-corner {
+    display: none;
+  }
+  .github-corner svg {
+    color: #222;
+    fill: #fff;
+  }
+  .github-corner .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@-moz-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-o-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
 .sidebar {
   background: #222;
   bottom: 0;
@@ -1175,7 +1302,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffcc87;
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1517,6 +1644,16 @@ pre .javascript .function {
     opacity: 0.8;
   }
 }
+.reading-progress-bar {
+  background: #37c6c0;
+  display: block;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  width: 0;
+  z-index: 1500;
+  top: 0;
+}
 .post-body {
   font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
@@ -1792,6 +1929,25 @@ pre .javascript .function {
   text-align: center;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+.posts-expand .post-title .post-edit-link {
+  border-bottom: none;
+  color: #bbb;
+  display: inline-block;
+  float: right;
+  font-size: 1.25em;
+  margin-left: -1.2em;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+@media (max-width: 567px) {
+  .posts-expand .post-title .post-edit-link {
+    margin-left: initial;
+  }
+}
+.posts-expand .post-title .post-edit-link:hover {
+  color: #fc6423;
 }
 .posts-expand .post-title-link {
   border-bottom: none;
@@ -2208,6 +2364,14 @@ ul.breadcrumb li + li:last-child {
 .tag-cloud a:hover {
   color: var(--link-hover-color) !important;
 }
+.gt-header a,
+.gt-comments a,
+.gt-popup a {
+  border-bottom: none;
+}
+.gt-container .gt-popup .gt-action.is--active::before {
+  top: 0.7em;
+}
 .search-pop-overlay {
   background: rgba(0,0,0,0);
   height: 100%;
@@ -2277,6 +2441,65 @@ ul.breadcrumb li + li:last-child {
 .search-popup input.search-input::-webkit-search-cancel-button {
   display: none;
 }
+.search-input-container {
+  flex-grow: 1;
+}
+.search-input-container form {
+  padding: 2px;
+}
+.algolia-powered {
+  float: right;
+}
+.algolia-powered img {
+  display: inline-block;
+  height: 18px;
+  vertical-align: middle;
+}
+.algolia-results {
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 30px;
+}
+.algolia-results hr {
+  margin: 10px 0;
+}
+.algolia-hit-item {
+  margin: 15px 0;
+}
+.algolia-hit-item-link {
+  border-bottom: 1px dashed #ccc;
+  display: block;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.algolia-pagination .pagination {
+  border-top: none;
+  margin: 40px 0;
+  opacity: 1;
+  padding: 0;
+}
+.algolia-pagination .pagination-item {
+  display: inline-block;
+}
+.algolia-pagination .page-number {
+  border-top: 1px solid transparent;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.algolia-pagination .page-number:hover {
+  border-top: 1px solid #222;
+}
+.algolia-pagination .current .page-number {
+  cursor: default;
+}
+.algolia-pagination .current .page-number:hover {
+  border-top-color: #ccc;
+}
+.algolia-pagination .disabled-item {
+  visibility: hidden;
+}
 .search-popup .search-input-container {
   flex-grow: 1;
   padding: 2px;
@@ -2307,6 +2530,32 @@ ul.breadcrumb li + li:last-child {
 .search-popup #no-result {
   color: #ccc;
   margin: auto;
+}
+.popular-posts-header {
+  border-bottom: 1px solid #eee;
+  display: block;
+  font-size: 1.125em;
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
+.popular-posts {
+  padding: 0;
+}
+.popular-posts .popular-posts-item {
+  margin-left: 2em;
+}
+.popular-posts .popular-posts-item .popular-posts-title {
+  font-size: 0.875em;
+  font-weight: normal;
+  line-height: 2.4;
+  margin: 0;
+}
+mjx-container[jax="CHTML"][display="true"],
+.has-jax {
+  overflow: auto hidden;
+}
+mjx-container + br {
+  display: none;
 }
 .header {
   margin: 0 auto;
