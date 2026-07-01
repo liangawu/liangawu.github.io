@@ -66,94 +66,6 @@
 <body itemscope itemtype="http://schema.org/WebPage">
 
 
-
-<style>
-#intro-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2147483647;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#intro-video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #000;
-}
-#intro-skip {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    color: #fff;
-    font-size: 16px;
-    padding: 10px 20px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 25px;
-    cursor: pointer;
-    z-index: 2147483648;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-#intro-skip.show { opacity: 1; }
-.fade-out { animation: fadeOut 0.8s ease-out forwards; }
-@keyframes fadeOut { 0% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
-</style>
-<div id="intro-overlay">
-    <video id="intro-video" autoplay muted playsinline></video>
-    <div id="intro-skip">跳过 ▶</div>
-</div>
-<script>
-(function(){
-    var lastShow = localStorage.getItem('intro_last_show_v4');
-    var now = Date.now();
-    var cooldown = 5 * 60 * 1000;
-    
-    if (lastShow && (now - parseInt(lastShow)) < cooldown) {
-        var el = document.getElementById('intro-overlay');
-        if (el) el.style.display = 'none';
-        return;
-    }
-    
-    var overlay = document.getElementById('intro-overlay');
-    var video = document.getElementById('intro-video');
-    var skipBtn = document.getElementById('intro-skip');
-    
-    video.src = '/videos/intro.mp4';
-    video.volume = 0.5;
-    
-    var played = false;
-    video.addEventListener('playing', function(){
-        if(!played){ played = true; skipBtn.classList.add('show'); }
-    });
-    
-    function hideIntro(){
-        if(overlay.classList.contains('fade-out')) return;
-        overlay.classList.add('fade-out');
-        localStorage.setItem('intro_last_show_v4', now.toString());
-        setTimeout(function(){ overlay.style.display = 'none'; }, 800);
-    }
-    
-    skipBtn.onclick = function(e){ e.stopPropagation(); hideIntro(); };
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' || e.key === ' ' || e.key === 'Enter') hideIntro(); });
-    video.addEventListener('ended', hideIntro);
-    video.addEventListener('error', hideIntro);
-    setTimeout(hideIntro, 90000);
-    
-    video.play().catch(function(){
-        video.muted = true;
-        video.play();
-    });
-})();
-</script>
-
-
-
 <a target="_blank" rel="noopener" href="https://github.com/liangawu" class="github-corner" aria-label="View source on GitHub">
   <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
     <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -169,7 +81,7 @@
 
 <div class="container use-motion">
   <div class="headband"></div>
-  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <header class="header" itemscope itemtype="http://schema.org/WebPage">
     <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
@@ -917,5 +829,62 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 </div>
+
+<script>
+(function(){
+  // 已经看过就不显示
+  if (sessionStorage.getItem('splash_done')) return;
+
+  // 创建遮罩
+  var mask = document.createElement('div');
+  mask.id = 'splash-mask';
+  mask.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:#000;cursor:pointer;';
+
+  // 创建视频
+  var video = document.createElement('video');
+  video.src = '/videos/intro.mp4';
+  video.muted = true;
+  video.autoplay = true;
+  video.playsInline = true;
+  video.preload = 'auto';
+  video.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+
+  // 跳过提示
+  var hint = document.createElement('span');
+  hint.textContent = '点击跳过 →';
+  hint.style.cssText = 'position:fixed;bottom:24px;right:24px;color:rgba(255,255,255,0.5);font-size:13px;z-index:2147483648;pointer-events:none;';
+
+  mask.appendChild(video);
+  document.body.appendChild(mask);
+  document.body.appendChild(hint);
+
+  // 关闭函数
+  function closeSplash(){
+    if (!mask.parentNode) return;
+    mask.style.transition = 'opacity 0.5s ease';
+    mask.style.opacity = '0';
+    hint.style.transition = 'opacity 0.5s ease';
+    hint.style.opacity = '0';
+    setTimeout(function(){
+      if (mask.parentNode) mask.parentNode.removeChild(mask);
+      if (hint.parentNode) hint.parentNode.removeChild(hint);
+      sessionStorage.setItem('splash_done', '1');
+    }, 500);
+  }
+
+  // 点击遮罩关闭
+  mask.onclick = closeSplash;
+
+  // 视频播完自动关闭
+  video.addEventListener('ended', closeSplash);
+
+  // 兜底：8秒强制关闭（防止视频卡住）
+  setTimeout(closeSplash, 8000);
+
+  // 视频加载失败也关闭
+  video.addEventListener('error', closeSplash);
+})();
+</script>
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
